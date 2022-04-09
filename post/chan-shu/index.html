@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>C++函数 | 风吹江月</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://ankeliei.github.io/favicon.ico?v=1649514169426">
+<link rel="stylesheet" href="https://ankeliei.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="函数是一起执行一个任务的语句。
+
+每一个C++程序都应该至少有一个函数，即main()函数
+代码可以自由地划分为不同的函数。逻辑上通常指定一个函数来执行某项特定的任务
+函数的声明：告诉编译器函数的名称、返回值类型和参数。函数的定义提供了其实..." />
+    <meta name="keywords" content="C/C++" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://ankeliei.github.io">
+        <img src="https://ankeliei.github.io/images/avatar.png?v=1649514169426" class="site-logo">
+        <h1 class="site-title">风吹江月</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      温故而知新
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://ankeliei.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">C++函数</h2>
+            <div class="post-date">2022-04-09</div>
+            
+            <div class="post-content" v-pre>
+              <p>函数是一起执行一个任务的语句。</p>
+<!--more-->
+<p>每一个C++程序都应该至少有一个函数，即<code>main()</code>函数</p>
+<p>代码可以自由地划分为不同的函数。逻辑上通常指定一个函数来执行某项特定的任务</p>
+<p><mark>函数的声明</mark>：告诉编译器函数的<code>名称</code>、<code>返回值类型</code>和<code>参数</code>。函数的定义提供了其实际上的主体</p>
+<p><mark>C++标准库</mark>提供了大量内置函数，功能强大</p>
+<h2 id="函数的定义">函数的定义</h2>
+<pre><code class="language-c++">return_type function_name (parameter list) {	'返回值类型 函数名（参数列表）'
+    'body_of_the_function'
+}
+</code></pre>
+<h2 id="函数的声明">函数的声明</h2>
+<p>函数声明可以告诉编译器函数名称和如何调用函数，函数主体可以单独定义。</p>
+<p>声明示例：</p>
+<pre><code class="language-c++">return_type function_name( parameter list );	'其中参数列表可以只指定形参的数据类型而不指定某名称'
+</code></pre>
+<h2 id="参数的传递">参数的传递</h2>
+<p><mark>传值调用</mark></p>
+<p>把参数的值复制给形参加以保存，所以函数内改变参数的值不会影响实际参数。</p>
+<pre><code class="language-c++"># include &lt;iostream&gt;
+using namespace std;
+
+void swap(int x, int y){
+    int temp;
+    temp = x;
+    x = y;
+    y = temp;
+}
+
+int main (){
+    int x = 1, y = 2;
+    swap( x , y );
+    cout &lt;&lt; 'x=' &lt;&lt; x &lt;&lt; endl;
+    cout &lt;&lt; 'y=' &lt;&lt; y &lt;&lt; endl;			'肉眼可见交换失败'
+}
+</code></pre>
+<p><mark>指针调用</mark></p>
+<p>该方法把参数的地址复制给形参，函数内的参数是一个指针，指针指向的数据才具有意义，在函数内修改形参指向的数据会影响实际参数。<mark>函数处理的是<strong>指针</strong>，想做有效操作需要访问参数所指的数据</mark></p>
+<pre><code class="language-c++"># include &lt;iostream&gt;
+using namespace std;
+
+void swap(int *x, int *y){
+    int temp;
+    temp = *x;
+    *x = *y;
+    *y = *temp;
+}
+
+int main (){
+    int x = 1, y = 2;
+    swap( &amp;x , &amp;y );
+    cout &lt;&lt; 'x=' &lt;&lt; x &lt;&lt; endl;
+    cout &lt;&lt; 'y=' &lt;&lt; y &lt;&lt; endl;			'交换成功，swap函数访问了指针参数指向的数据，并加以改变'
+}
+</code></pre>
+<p><mark>引用调用</mark></p>
+<p>向函数传递参数的<strong>引用调用</strong>方法，把引用的地址复制给形式参数。在函数内，该引用用于访问调用中要用到的实际参数。这意味着，修改形式参数会影响实际参数。</p>
+<p>按引用传递值，参数引用被传递给函数，就像传递其他值给函数一样。因此相应地，在下面的函数 <strong>swap()</strong> 中，您需要声明函数参数为引用类型，该函数用于交换参数所指向的两个整数变量的值。</p>
+<pre><code class="language-c++"># include &lt;iostream&gt;
+using namespace std;
+
+void swap(int &amp;x, int &amp;y){
+    int temp;
+    temp = x;
+    x = y;
+    y = temp;
+}
+
+int main (){
+    int x = 1, y = 2;
+    swap( x , y );
+    cout &lt;&lt; 'x=' &lt;&lt; x &lt;&lt; endl;
+    cout &lt;&lt; 'y=' &lt;&lt; y &lt;&lt; endl;			'交换成功，swap函数访问了指针参数指向的数据，并加以改变'
+}
+</code></pre>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://ankeliei.github.io/tag/c_pp/" class="tag">
+                    C/C++
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://ankeliei.github.io/post/ccun-chu-lei/">
+                  <h3 class="post-title">
+                    C++存储类
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+
+  </body>
+</html>

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>中断 | 风吹江月</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://ankeliei.github.io/favicon.ico?v=1649514169426">
+<link rel="stylesheet" href="https://ankeliei.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="中断机构和中断程序处理
+中断简介
+中断和陷入
+
+中断是指CPU对来自I/O设备发来的中断信号的一种响应
+陷入是由CPU内部时间所引发的，如运算上溢或者下溢、非法指令、地址越界、电源故障等。此类中断通常称为内中断或陷入
+
+中断向量表和中断优先..." />
+    <meta name="keywords" content="操作系统" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://ankeliei.github.io">
+        <img src="https://ankeliei.github.io/images/avatar.png?v=1649514169426" class="site-logo">
+        <h1 class="site-title">风吹江月</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      温故而知新
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://ankeliei.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">中断</h2>
+            <div class="post-date">2022-04-09</div>
+            
+              <div class="feature-container" style="background-image: url('https://ankeliei.github.io/post-images/zhong-duan.png')">
+              </div>
+            
+            <div class="post-content" v-pre>
+              <h1 id="中断机构和中断程序处理">中断机构和中断程序处理</h1>
+<h2 id="中断简介">中断简介</h2>
+<h3 id="中断和陷入">中断和陷入</h3>
+<ul>
+<li>中断是指CPU对来自I/O设备发来的中断信号的一种响应</li>
+<li>陷入是由CPU内部时间所引发的，如运算上溢或者下溢、非法指令、地址越界、电源故障等。此类中断通常称为<code>内中断</code>或<code>陷入</code></li>
+</ul>
+<h3 id="中断向量表和中断优先级">中断向量表和中断优先级</h3>
+<ul>
+<li><strong>中断向量表</strong>：把每种设备的对应中断程序入口地址集中存放在一个表项之中，每个设备的中断信号直接对应表中的表项。中断向量表以<code>段地址+段内偏移量</code>的形式存放中断程序入口地址。</li>
+<li><strong>中断优先级</strong>：</li>
+</ul>
+<h3 id="多中断源处理方式屏蔽中断-嵌套终端">多中断源处理方式：屏蔽中断、嵌套终端</h3>
+<h2 id="中断处理程序">中断处理程序</h2>
+<hr>
+<h1 id="设备驱动程序">设备驱动程序</h1>
+<figure data-type="image" tabindex="1"><img src="https://ankeliei.github.io/post-images/1649513657142.png" alt="" loading="lazy"></figure>
+<h2 id="功能有">功能有：</h2>
+<h2 id="特点有">特点有：</h2>
+<ul>
+<li>可重入：正在使用的驱动程序会在一次调用完成前再次被调用</li>
+<li>不使用系统调用</li>
+<li>硬件紧密：部分使用机器码或者汇编语言编写</li>
+<li>硬件紧密：一般来说与硬件一一对应</li>
+</ul>
+<h2 id="设备处理方式">设备处理方式</h2>
+<ul>
+<li>每类设置一个进程</li>
+<li>设置一个总进程</li>
+<li>不设置专门的设备处理进程，只设置相应的处理程序，供系统或用户调用</li>
+</ul>
+<h2 id="处理过程">处理过程</h2>
+<ol>
+<li>抽象转化为具体</li>
+<li>检查I/O请求是否合法</li>
+<li>读出和检查设备的状态</li>
+<li>传送必要的参数</li>
+<li>工作方式的设置</li>
+<li>启动I/O设备</li>
+</ol>
+<h2 id="状态寄存器中的格式">状态寄存器中的格式</h2>
+<figure data-type="image" tabindex="2"><img src="https://ankeliei.github.io/post-images/1649513628605.png" alt="" loading="lazy"></figure>
+<h2 id="通道程序">通道程序</h2>
+<p>通道通过执行通道程序，与设备控制器交互完成I/O过程</p>
+<h2 id="设备无关的io软件">设备无关的I/O软件</h2>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://ankeliei.github.io/tag/OperatingSystem/" class="tag">
+                    操作系统
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://ankeliei.github.io/post/wen-jian-xi-tong/">
+                  <h3 class="post-title">
+                    文件系统
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+
+  </body>
+</html>

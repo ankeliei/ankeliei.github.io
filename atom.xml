@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ankeliei.github.io</id>
     <title>风吹江月</title>
-    <updated>2022-04-09T13:43:38.966Z</updated>
+    <updated>2022-04-09T14:22:55.077Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ankeliei.github.io"/>
     <link rel="self" href="https://ankeliei.github.io/atom.xml"/>
@@ -11,12 +11,395 @@
     <icon>https://ankeliei.github.io/favicon.ico</icon>
     <rights>All rights reserved 2022, 风吹江月</rights>
     <entry>
+        <title type="html"><![CDATA[C++函数]]></title>
+        <id>https://ankeliei.github.io/post/chan-shu/</id>
+        <link href="https://ankeliei.github.io/post/chan-shu/">
+        </link>
+        <updated>2022-04-09T14:17:11.000Z</updated>
+        <summary type="html"><![CDATA[<p>函数是一起执行一个任务的语句。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>函数是一起执行一个任务的语句。</p>
+<!--more-->
+<p>每一个C++程序都应该至少有一个函数，即<code>main()</code>函数</p>
+<p>代码可以自由地划分为不同的函数。逻辑上通常指定一个函数来执行某项特定的任务</p>
+<p><mark>函数的声明</mark>：告诉编译器函数的<code>名称</code>、<code>返回值类型</code>和<code>参数</code>。函数的定义提供了其实际上的主体</p>
+<p><mark>C++标准库</mark>提供了大量内置函数，功能强大</p>
+<h2 id="函数的定义">函数的定义</h2>
+<pre><code class="language-c++">return_type function_name (parameter list) {	'返回值类型 函数名（参数列表）'
+    'body_of_the_function'
+}
+</code></pre>
+<h2 id="函数的声明">函数的声明</h2>
+<p>函数声明可以告诉编译器函数名称和如何调用函数，函数主体可以单独定义。</p>
+<p>声明示例：</p>
+<pre><code class="language-c++">return_type function_name( parameter list );	'其中参数列表可以只指定形参的数据类型而不指定某名称'
+</code></pre>
+<h2 id="参数的传递">参数的传递</h2>
+<p><mark>传值调用</mark></p>
+<p>把参数的值复制给形参加以保存，所以函数内改变参数的值不会影响实际参数。</p>
+<pre><code class="language-c++"># include &lt;iostream&gt;
+using namespace std;
+
+void swap(int x, int y){
+    int temp;
+    temp = x;
+    x = y;
+    y = temp;
+}
+
+int main (){
+    int x = 1, y = 2;
+    swap( x , y );
+    cout &lt;&lt; 'x=' &lt;&lt; x &lt;&lt; endl;
+    cout &lt;&lt; 'y=' &lt;&lt; y &lt;&lt; endl;			'肉眼可见交换失败'
+}
+</code></pre>
+<p><mark>指针调用</mark></p>
+<p>该方法把参数的地址复制给形参，函数内的参数是一个指针，指针指向的数据才具有意义，在函数内修改形参指向的数据会影响实际参数。<mark>函数处理的是<strong>指针</strong>，想做有效操作需要访问参数所指的数据</mark></p>
+<pre><code class="language-c++"># include &lt;iostream&gt;
+using namespace std;
+
+void swap(int *x, int *y){
+    int temp;
+    temp = *x;
+    *x = *y;
+    *y = *temp;
+}
+
+int main (){
+    int x = 1, y = 2;
+    swap( &amp;x , &amp;y );
+    cout &lt;&lt; 'x=' &lt;&lt; x &lt;&lt; endl;
+    cout &lt;&lt; 'y=' &lt;&lt; y &lt;&lt; endl;			'交换成功，swap函数访问了指针参数指向的数据，并加以改变'
+}
+</code></pre>
+<p><mark>引用调用</mark></p>
+<p>向函数传递参数的<strong>引用调用</strong>方法，把引用的地址复制给形式参数。在函数内，该引用用于访问调用中要用到的实际参数。这意味着，修改形式参数会影响实际参数。</p>
+<p>按引用传递值，参数引用被传递给函数，就像传递其他值给函数一样。因此相应地，在下面的函数 <strong>swap()</strong> 中，您需要声明函数参数为引用类型，该函数用于交换参数所指向的两个整数变量的值。</p>
+<pre><code class="language-c++"># include &lt;iostream&gt;
+using namespace std;
+
+void swap(int &amp;x, int &amp;y){
+    int temp;
+    temp = x;
+    x = y;
+    y = temp;
+}
+
+int main (){
+    int x = 1, y = 2;
+    swap( x , y );
+    cout &lt;&lt; 'x=' &lt;&lt; x &lt;&lt; endl;
+    cout &lt;&lt; 'y=' &lt;&lt; y &lt;&lt; endl;			'交换成功，swap函数访问了指针参数指向的数据，并加以改变'
+}
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[C++存储类]]></title>
+        <id>https://ankeliei.github.io/post/ccun-chu-lei/</id>
+        <link href="https://ankeliei.github.io/post/ccun-chu-lei/">
+        </link>
+        <updated>2022-04-09T14:15:32.000Z</updated>
+        <summary type="html"><![CDATA[<p><code>static</code>、<code>extern</code>、<code>mutable</code>、<code>thread_local</code>（<code>auto</code>、<code>register</code>）</p>
+]]></summary>
+        <content type="html"><![CDATA[<p><code>static</code>、<code>extern</code>、<code>mutable</code>、<code>thread_local</code>（<code>auto</code>、<code>register</code>）</p>
+<!--more-->
+<h2 id="static">static</h2>
+<p>static存储类指示编译器在程序的生命周期内保持局部变量的存在，而不需要每次在进出作用域时进行创建或销毁。因此，<code>static</code>修饰的局部变量可以在函数调用之间保持局部变量的值；</p>
+<p><code>static</code>修饰全局变量会使其作用域限定在声明的文件中;</p>
+<p><code>static</code>修饰类数据成员时，会导致有一个该成员的副本被所有类共享。</p>
+<pre><code class="language-c++">'类的静态成员变量先于类的对象而存在'
+'类的所有对象共用一个静态成员'
+'如果类的静态成员是共有的，可以通过类名直接访问这个静态成员'
+'静态成员数据在声明的时候类外初始化'
+</code></pre>
+<p>静态局部变量若无显式的初始化，编译器会采取与全局变量相同的初始化方略：<code>每位都置0</code>。</p>
+<p>典型使用就是标识一个计数器，统计函数调用的次数或是类的实例数量。</p>
+<pre><code>## extern
+</code></pre>
+<p>extern用于提供一个全局变量的引用，全局变量对所有的程序文件都是可见的。当使用extern时，对于无法初始化的变量，会把变量名指向一个之前定义过的存储位置。</p>
+<p>当您有多个文件且定义了一个可以在其他文件中使用的全局变量或函数时，可以在其他文件中使用 <em>extern</em> 来得到已定义的变量或函数的引用。可以这么理解，<strong><code>extern</code> 是用来在另一个文件中声明一个全局变量或函数</strong>。</p>
+<p><code>extern</code>通常用于两个或多个文件共享相同的全局变量或函数时。</p>
+<p>例：<code>mian.cpp</code>和<code>support.cpp</code>两个文件使用<code>$ g++ mian.cpp support.cpp -o extern_test</code>编译。</p>
+<pre><code class="language-c++">'main.cpp' 
+#include &lt;iostream&gt;
+ 
+int count ;
+extern void write_extern();
+ 
+int main()
+{
+   count = 5;
+   write_extern();
+}
+</code></pre>
+<pre><code class="language-c++">'support.cpp'
+#include &lt;iostream&gt;
+ 
+extern int count;
+ 
+void write_extern(void)
+{
+   std::cout &lt;&lt; &quot;Count is &quot; &lt;&lt; count &lt;&lt; std::endl;
+}
+</code></pre>
+<p>编译并运行的结果为</p>
+<pre><code class="language-shell">Count is 5
+</code></pre>
+<h2 id="thread_local">thread_local</h2>
+<p>使用 thread_local 说明符声明的变量仅可在它在其上创建的线程上访问。 变量在创建线程时创建，并在销毁线程时销毁。 每个线程都有其自己的变量副本。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[C++常量]]></title>
+        <id>https://ankeliei.github.io/post/cchang-liang/</id>
+        <link href="https://ankeliei.github.io/post/cchang-liang/">
+        </link>
+        <updated>2022-04-09T14:14:37.000Z</updated>
+        <summary type="html"><![CDATA[<p><mark>常量</mark>是固定的，在程序执行期间不会改变，又称<mark>字面量</mark>。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p><mark>常量</mark>是固定的，在程序执行期间不会改变，又称<mark>字面量</mark>。</p>
+<!--more-->
+<h2 id="整数型常量">整数型常量</h2>
+<p>整数型常量有自己的<mark>前缀</mark>或者<mark>后缀</mark>，</p>
+<ul>
+<li>前缀指定基数：<mark>无前缀</mark>表示十进制，<mark>0x</mark>或<mark>0X</mark>表示十六进制，<mark>0</mark>表示八进制。</li>
+<li>后缀为两个字母<mark>u</mark>与<mark>l</mark>的组合，大小写不敏感。<mark>u</mark>指定该数为无符号数，<mark>l</mark>指定该数为长整型</li>
+</ul>
+<pre><code class="language-c++">212				//合法
+215u			//合法
+0xFeel			//合法
+078				//非法，8不应该出现在八进制数字中
+032uu			//非法，后缀标识重复
+</code></pre>
+<h2 id="浮点常量">浮点常量</h2>
+<p>浮点常量较为复杂，通常是由<mark>整数</mark>、<mark>小数点</mark>、<mark>小数部分</mark>、和<mark>指数</mark>部分组合而成。</p>
+<p>浮点数总是有符号的，故没有后缀标识符<mark>u</mark>。</p>
+<p>后缀<mark>f</mark>指明单精度，后缀<mark>l</mark>指明长双精度，不区分大小写。</p>
+<pre><code class="language-c++">3.1415e-5l		//合法
+</code></pre>
+<h2 id="布尔常量">布尔常量</h2>
+<p>共有两个，都是标准的关键字。<mark>true</mark>与<mark>false</mark></p>
+<p><strong>不应该简单地将true与false看成是0或1</strong></p>
+<h2 id="字符常量">字符常量</h2>
+<p>字符常量存在于单引号之中，一个字符存储为一个<mark>char</mark>。</p>
+<p>引号前以<mark>L</mark>标识时，此为宽字符常量，例如<code>L'x'</code>存储为wchar_t。注意，标识符只能为大写。</p>
+<p>字符常量中，遇到反斜线<code>\</code>时，对其后的字符进行转义。</p>
+<table>
+<thead>
+<tr>
+<th>转义序列</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>\</td>
+<td>\</td>
+</tr>
+<tr>
+<td>'</td>
+<td>'</td>
+</tr>
+<tr>
+<td>&quot;</td>
+<td>&quot;</td>
+</tr>
+<tr>
+<td>?</td>
+<td>?</td>
+</tr>
+<tr>
+<td>\a</td>
+<td>警报</td>
+</tr>
+<tr>
+<td>\b</td>
+<td>退格键</td>
+</tr>
+<tr>
+<td>\f</td>
+<td>换页符</td>
+</tr>
+<tr>
+<td>\n</td>
+<td>换行符</td>
+</tr>
+<tr>
+<td>\r</td>
+<td>回车</td>
+</tr>
+<tr>
+<td>\t</td>
+<td>制表符</td>
+</tr>
+<tr>
+<td>\v</td>
+<td>垂直制表符</td>
+</tr>
+<tr>
+<td>\ooo</td>
+<td>一到三位的八进制数</td>
+</tr>
+<tr>
+<td>\xhh</td>
+<td>一或多位的十六进制数</td>
+</tr>
+</tbody>
+</table>
+<p>=='\u02C0'==等通用字符也有其意义。</p>
+<h2 id="字符串常量">字符串常量</h2>
+<p>字符串常量通常包括在双引号<code>&quot;&quot;</code>之中，由<mark>普通字符</mark>、<mark>转义序列</mark>、<mark>通用字符组成</mark>。</p>
+<hr>
+<h2 id="常量的定义">常量的定义</h2>
+<p>c++中有两种简单的方式来定义常量：</p>
+<pre><code class="language-c++">'使用#define预处理器定义常量'
+#define indentifier value
+#define LEIGHT 5
+
+'使用 const 关键字'
+const type variable = value;
+const int WIDTH = 10;
+</code></pre>
+<p><strong>注意，把常量定义为全大写字母形式是一个很好的习惯。</strong></p>
+<p>使用<code>const</code>定义的常量不能被后期修改。</p>
+<p><code>#define</code>宏定义只是字符的替换，不会分配内存，没有数据类型的区别。没有类型安全检查，可能导致边际效应错误。</p>
+<p><code>const</code>是对常量定义的结果加了锁，要求后期不能修改，是一个<mark>运行时</mark>概念，类似于一个只读的数据。</p>
+<p><code>#define</code>预处理语句不能在末尾加分号<code>;</code>，否则编译器不报错而程序出错。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[中断]]></title>
+        <id>https://ankeliei.github.io/post/zhong-duan/</id>
+        <link href="https://ankeliei.github.io/post/zhong-duan/">
+        </link>
+        <updated>2022-04-09T14:13:21.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="中断机构和中断程序处理">中断机构和中断程序处理</h1>
+<h2 id="中断简介">中断简介</h2>
+<h3 id="中断和陷入">中断和陷入</h3>
+<ul>
+<li>中断是指CPU对来自I/O设备发来的中断信号的一种响应</li>
+<li>陷入是由CPU内部时间所引发的，如运算上溢或者下溢、非法指令、地址越界、电源故障等。此类中断通常称为<code>内中断</code>或<code>陷入</code></li>
+</ul>
+<h3 id="中断向量表和中断优先级">中断向量表和中断优先级</h3>
+<ul>
+<li><strong>中断向量表</strong>：把每种设备的对应中断程序入口地址集中存放在一个表项之中，每个设备的中断信号直接对应表中的表项。中断向量表以<code>段地址+段内偏移量</code>的形式存放中断程序入口地址。</li>
+<li><strong>中断优先级</strong>：</li>
+</ul>
+<h3 id="多中断源处理方式屏蔽中断-嵌套终端">多中断源处理方式：屏蔽中断、嵌套终端</h3>
+<h2 id="中断处理程序">中断处理程序</h2>
+<hr>
+<h1 id="设备驱动程序">设备驱动程序</h1>
+<figure data-type="image" tabindex="1"><img src="https://ankeliei.github.io/post-images/1649513657142.png" alt="" loading="lazy"></figure>
+<h2 id="功能有">功能有：</h2>
+<h2 id="特点有">特点有：</h2>
+<ul>
+<li>可重入：正在使用的驱动程序会在一次调用完成前再次被调用</li>
+<li>不使用系统调用</li>
+<li>硬件紧密：部分使用机器码或者汇编语言编写</li>
+<li>硬件紧密：一般来说与硬件一一对应</li>
+</ul>
+<h2 id="设备处理方式">设备处理方式</h2>
+<ul>
+<li>每类设置一个进程</li>
+<li>设置一个总进程</li>
+<li>不设置专门的设备处理进程，只设置相应的处理程序，供系统或用户调用</li>
+</ul>
+<h2 id="处理过程">处理过程</h2>
+<ol>
+<li>抽象转化为具体</li>
+<li>检查I/O请求是否合法</li>
+<li>读出和检查设备的状态</li>
+<li>传送必要的参数</li>
+<li>工作方式的设置</li>
+<li>启动I/O设备</li>
+</ol>
+<h2 id="状态寄存器中的格式">状态寄存器中的格式</h2>
+<figure data-type="image" tabindex="2"><img src="https://ankeliei.github.io/post-images/1649513628605.png" alt="" loading="lazy"></figure>
+<h2 id="通道程序">通道程序</h2>
+<p>通道通过执行通道程序，与设备控制器交互完成I/O过程</p>
+<h2 id="设备无关的io软件">设备无关的I/O软件</h2>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[文件系统]]></title>
+        <id>https://ankeliei.github.io/post/wen-jian-xi-tong/</id>
+        <link href="https://ankeliei.github.io/post/wen-jian-xi-tong/">
+        </link>
+        <updated>2022-04-09T14:12:30.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="文件名和类型">文件名和类型</h2>
+<h3 id="文件和扩展名">文件和扩展名</h3>
+<ul>
+<li>文件名--在不同系统中，对文件名的规定是不同的，典型的是<code>8.3格式</code>，大部分系统也都支持长文件名格式</li>
+<li>扩展名--通常与系统对文件的操作相关</li>
+</ul>
+<h3 id="文件类型">文件类型</h3>
+<ul>
+<li>用途分类：系统文件、用户文件、库文件</li>
+<li>数据类型：源文件、目标文件、可执行文件</li>
+<li>逻辑结构：有结构文件、无结构文件</li>
+<li>物理结构：顺序文件、链接文件、索引文件</li>
+</ul>
+<h3 id="文件系统层次">文件系统层次</h3>
+<figure data-type="image" tabindex="1"><img src="https://ankeliei.github.io/post-images/1649513582188.png" alt="" loading="lazy"></figure>
+<p>分为三个层次，<code>最底层</code>是对象及其属性说明；<code>中间层</code>是对对象操纵和管理软件的集合；<code>最高层</code>是文件系统提供给用户的接口</p>
+<h3 id="文件操作">文件操作</h3>
+<ul>
+<li>创建</li>
+<li>删除</li>
+<li>读</li>
+<li>写</li>
+<li>设置文件的读写位置</li>
+</ul>
+<h2 id="文件的逻辑结构">文件的逻辑结构</h2>
+<p>区别于物理结构</p>
+<h3 id="文件逻辑结构的类型">文件逻辑结构的类型</h3>
+<h4 id="是否有结构">是否有结构</h4>
+<ul>
+<li>有结构文件</li>
+<li>无结构文件</li>
+</ul>
+<h4 id="文件组织方式">文件组织方式</h4>
+<ul>
+<li>
+<p>顺序文件</p>
+<p>文件是记录的集合。文件中记录的顺序是任意的，一般可以归纳为<code>串结构</code>（即按时间安排记录）、<code>顺序结构</code>(即按文件记录按关键字排序，具有更好的检索效率)</p>
+</li>
+<li>
+<p>索引文件</p>
+</li>
+<li>
+<p>索引顺序文件</p>
+</li>
+</ul>
+<h3 id="记录寻址">记录寻址</h3>
+<h4 id="隐式寻址">隐式寻址</h4>
+<p>对于定长记录的顺序文件，若当前记录的逻辑地址已知，则易确定下一记录的逻辑地址地址</p>
+<h4 id="显式寻址">显式寻址</h4>
+<h3 id="索引文件">索引文件</h3>
+<h4 id="按关键字建立索引">按关键字建立索引</h4>
+<p>对变长记录文件建立索引表，记录每一个记录的地址。索引表本身是一个定长记录的顺序文件。对文件进行检索时，根据关键字，在索引表中应用二分查找法等算法，加速索引</p>
+<h3 id="索引顺序文件">索引顺序文件</h3>
+<h4 id="一级索引顺序文件">一级索引顺序文件</h4>
+<p>将变长记录顺序文件所有记录分组，为组建立索引项，方便索引，甚至可以有二级索引表。</p>
+<h4 id="直接地址文件">直接地址文件</h4>
+<h4 id="哈希文件">哈希文件</h4>
+<p>一种直接文件，利用哈希函数将关键字转换为相应记录的地址。</p>
+<h2 id="文件目录">文件目录</h2>
+]]></content>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[ 进程的描述与控制]]></title>
-        <id>https://ankeliei.github.io/jin-cheng-de-miao-shu-yu-kong-zhi/</id>
-        <link href="https://ankeliei.github.io/jin-cheng-de-miao-shu-yu-kong-zhi/">
+        <id>https://ankeliei.github.io/post/jin-cheng-de-miao-shu-yu-kong-zhi/</id>
+        <link href="https://ankeliei.github.io/post/jin-cheng-de-miao-shu-yu-kong-zhi/">
         </link>
         <updated>2022-04-09T11:56:11.000Z</updated>
-        <content type="html"><![CDATA[<h3 id="一-前驱图和程序执行">一、前驱图和程序执行</h3>
+        <summary type="html"><![CDATA[<p>现代操作系统对进程的组织方式</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>现代操作系统对进程的组织方式</p>
+<!--more-->
+<h3 id="一-前驱图和程序执行">一、前驱图和程序执行</h3>
 <hr>
 <h5 id="前驱图precedence-graph">前驱图(Precedence Graph)：</h5>
 <p>描述程序执行先后顺序，是一个<code>有向无循环图</code>。图中的每一个节点可以表示一个进程或程序段，结点间的有向线段表示一种<code>偏序</code>或<code>前趋</code>关系。<br>
@@ -128,8 +511,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[C++变量类型]]></title>
-        <id>https://ankeliei.github.io/cbian-liang-lei-xing/</id>
-        <link href="https://ankeliei.github.io/cbian-liang-lei-xing/">
+        <id>https://ankeliei.github.io/post/cbian-liang-lei-xing/</id>
+        <link href="https://ankeliei.github.io/post/cbian-liang-lei-xing/">
         </link>
         <updated>2022-04-09T11:52:07.000Z</updated>
         <content type="html"><![CDATA[<h2 id="变量">变量</h2>
@@ -227,8 +610,8 @@ cout &lt;&lt; &quot;a + b = &quot; &lt;&lt; a + (int)b &lt;&lt; endl;  //输出�
     </entry>
     <entry>
         <title type="html"><![CDATA[Hello Gridea]]></title>
-        <id>https://ankeliei.github.io/hello-gridea/</id>
-        <link href="https://ankeliei.github.io/hello-gridea/">
+        <id>https://ankeliei.github.io/post/hello-gridea/</id>
+        <link href="https://ankeliei.github.io/post/hello-gridea/">
         </link>
         <updated>2018-12-11T16:00:00.000Z</updated>
         <summary type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>

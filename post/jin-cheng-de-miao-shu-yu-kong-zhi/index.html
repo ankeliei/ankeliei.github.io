@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title> 进程的描述与控制 | 风吹江月</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://ankeliei.github.io/favicon.ico?v=1649514169426">
+<link rel="stylesheet" href="https://ankeliei.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="现代操作系统对进程的组织方式
+
+一、前驱图和程序执行
+
+前驱图(Precedence Graph)：
+描述程序执行先后顺序，是一个有向无循环图。图中的每一个节点可以表示一个进程或程序段，结点间的有向线段表示一种偏序或前趋关系。
+一些概念：直..." />
+    <meta name="keywords" content="操作系统" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://ankeliei.github.io">
+        <img src="https://ankeliei.github.io/images/avatar.png?v=1649514169426" class="site-logo">
+        <h1 class="site-title">风吹江月</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      温故而知新
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://ankeliei.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title"> 进程的描述与控制</h2>
+            <div class="post-date">2022-04-09</div>
+            
+              <div class="feature-container" style="background-image: url('https://ankeliei.github.io/post-images/jin-cheng-de-miao-shu-yu-kong-zhi.png')">
+              </div>
+            
+            <div class="post-content" v-pre>
+              <p>现代操作系统对进程的组织方式</p>
+<!--more-->
+<h3 id="一-前驱图和程序执行">一、前驱图和程序执行</h3>
+<hr>
+<h5 id="前驱图precedence-graph">前驱图(Precedence Graph)：</h5>
+<p>描述程序执行先后顺序，是一个<code>有向无循环图</code>。图中的每一个节点可以表示一个进程或程序段，结点间的有向线段表示一种<code>偏序</code>或<code>前趋</code>关系。<br>
+一些概念：<code>直接前趋</code>、<code>直接后继</code>、<code>初始结点</code>、<code>终止结点</code>、<code>结点重量</code><em>(该节点所含有的程序量或程序的执行时间)</em></p>
+<hr>
+<h5 id="程序的顺序执行">程序的顺序执行：</h5>
+<p>一个应用程序由若干个程序段组成，需要按某种先后次序顺序执行。</p>
+<p><strong>特征是</strong>：<code>顺序性</code>处理机严格按照设定好的顺序执行即每一次操作都在下一次操作开始前完成；<code>封闭性</code>程序在封闭的环境下运行，独占全机资源，资源的状态只受本程序改变，程序一旦开始其结果就不受外界干扰；<code>可再现性</code>程序的执行过程可以复现，即只要环境和初始条件相同，程序的执行结果就相同。</p>
+<hr>
+<h5 id="程序的并发执行">程序的并发执行：</h5>
+<p>只有不存在前趋关系的程序之间才有可能并发执行。引入并发执行可提高系统吞吐量和资源利用率，并发执行的程序之间会产生相互制约。</p>
+<p><strong>特征是：</strong>  <code>间断性</code>并发执行的程序之间共享系统资源，为完成同一项任务而相互合作，致使这些并发执行的程序之间形成了相互制约的关系，导致程序具有<em>执行-暂停-执行</em>的间断性活动规律；<code>失去封闭性</code>系统中的各种资源被多个并发执行的程序共享，资源状态由它们控制改变，任意的一个程序的执行过程都会影响到其他并行的程序，例如处理机的争夺、文件的操作权限争夺；<code>不可再现性</code>程序在并发执行时，因为失去了封闭性，导致其失去可再现性。程序执行时初始条件不变和运行环境不变无法保证结果不变。</p>
+<h3 id="二-进程的描述">二、进程的描述</h3>
+<hr>
+<h5 id="进程的定义">进程的定义</h5>
+<p>多道程序环境下程序的执行属于并发执行，失去其封闭性，失去运行结果的可再现性，具有了间断性。因此通常的程序时不能参与并发执行的，为了使程序能并发执行，并对其加以描述和控制，引入了<code>进程</code>概念。</p>
+<p>为使参与并发执行的每个程序(含数据)都能独立地运行，在操作性中专门为之配置数据结构PCB(进程控制块，Process Control Block)。系统利用PCB来描述进程的基本情况和活动过程，进而控制和管理进程。这样，由PCB、程序段、相关数据三方便构成了<code>进程实体</code> <code>(进程映像)</code>。一般情况下进程实体即简称为进程，例如所谓创建进程即为创建进程实体中的PCB；撤销进程及撤销进程的PCB。</p>
+<p>较为典型的进程的定义有：</p>
+<ul>
+<li>进程是程序的一次执行</li>
+<li>进程是一个程序及其数据在处理机上顺序执行时所发出的活动</li>
+<li>进程是具有独立功能的程序在一个数据集合上运行的过程，它是系统进行资源调度和分配的一个独立单位</li>
+</ul>
+<p>传统OS中的进程定义为：进程是进程实体的运行过程，是资源分配和调度的一个独立单位。</p>
+<hr>
+<h5 id="进程的特征">进程的特征</h5>
+<p>进程和程序是两个截然不同的概念，除了PCB之外，进程还具有以下特征：</p>
+<ul>
+<li><code>动态性</code>进程的实质是指实体执行的过程，因此，动态性就是进程的最基本特征。动态性还表现在：它由创建而产生，由调用而执行，由撤销而消亡。进程实体具有一定的生命周期，程序只是一组有序的指令的集合，程序存放在命中介质中，其本身并不具有活动的含义，其本省是静态的。</li>
+<li><code>并发性</code>是指多个进程实体同时存在于内存中，且能在一段时间内同时运行。引入进程的目的也正是为了使进程实体能和其它进程实体并发执行。因此<code>并发性</code>是进程的一个重要特征，也是OS的重要特征。而程序是不能参与并发执行的。</li>
+<li><code>独立性</code>：传统OS中，独立性是指进程实体是一个独立运行，独立获得资源和独立接受调度的基本单位，凡未建立PCB的程序都不能作为一个独立的单位参与运行。</li>
+<li><code>异步性</code>：进程按照异步的方式运行，即各自按独立的不可预知的速度向前推进。源于此因，导致传统的程序若是参与并发执行，会产生结果的不可再现性。为了使进程在执行中具有异步性的同时保持可再现性，在OS中引入进程概念并配置相应额度同步机制。</li>
+</ul>
+<hr>
+<h5 id="进程的基本状态及转换">进程的基本状态及转换</h5>
+<p><code>就绪(Ready)状态</code>进程已经处于准备好运行的状态，即进程已经分配到除处理机之外的所有资源，只要再获得CPU即可立即投入执行，若系统中有多个处于就绪状态的进程，通常按一定策略为其排定<em>就绪队列</em><br>
+<code>执行(Running)状态</code>进程已经获得CPU，正在执行。任意一个时刻中，单处理机系统中只有一个进程处于执行状态。<br>
+<code>阻塞(Block)状态</code>正在执行的进程由于发生某种事件(如I/O请求、申请缓冲区失败等)暂时无法继续执行时的状态，即进程的执行受到阻塞。此时引起进程调度，OS把处理机分配给另一个就绪进程，受阻进程处于暂停状态(阻塞状态、等待状态、封锁状态)。通常系统将受阻进程也排成一个序列即<em>阻塞队列</em>。大型系统中，也会根据阻塞原因的不同设置多个<em>阻塞序列</em>。</p>
+<p><strong>三种基本状态的转换</strong>：<br>
+<img src="https://ankeliei.github.io/post-images/1649511181395.png" alt="三种状态转换.png" loading="lazy"><br>
+<strong>创建状态和终止状态</strong>：为满足进程控制块对数据及进程操作的完整性以及加强管理的灵活性，通常在三种基本状态之外又引进两种状态：</p>
+<p><code>创建状态</code>进程由创建产生。创建进程是一个复杂的过程</p>
+<ul>
+<li>申请空白PCB</li>
+<li>装入控制和管理信息</li>
+<li>分配运行时所需的资源</li>
+<li>转入就绪状态并插入就绪队列中</li>
+</ul>
+<p>在转入就绪状态之前一直处于创建状态，故OS可根据系统性能和内存余量延迟提交，灵活方便。</p>
+<p><code>终止状态</code> 进程的终止也分为两个步骤：先是等待操作系统的善后处理，再是清空PCB并交还给OS。进程的结束有以下几种情况：自然到达终点、出现无法克服的错误、被操作系统杀死，遇到以上情况进程将进入终止状态。进入终止状态的进程将不会再执行，但在操作系统中依然会保留一个记录，其中有状态码和一些计时统计信息，供其他进程收集。收集完成之后操作系统立即删除该进程，即将PCB清空并返还</p>
+<p>增加创建和终止的进程状态转化图：<br>
+<img src="https://ankeliei.github.io/post-images/1649511266274.png" alt="五种状态转化图" loading="lazy"></p>
+<hr>
+<h5 id="挂起操作和进程状态的转化">挂起操作和进程状态的转化</h5>
+<p>为用户分析和观察进程的需要，操作系统还提供对进程的<code>挂起操作</code>。对某个进程施行<code>挂起操作</code>，该进程将被挂起并处于静止状态。正在执行的则暂停执行，就绪的则暂不接受调度。与<code>挂起操作</code>相对应的是<code>激活操作</code></p>
+<p><strong>挂起操作引入的原因</strong></p>
+<ul>
+<li>终端用户的需要：用户需要惊喜控制进程的执行流程</li>
+<li>父进程的请求：父进程又是希望对自己的某个子进程进行检查的修改或对多个子进程加以协调</li>
+<li>负荷调节的需要：系统在负荷过重影响到对实时任务的控制时，可以挂起一些不重要的进程</li>
+<li>操作系统的需要：OS有时希望能挂起一些进程以便检查资源的使用或者进行记账。</li>
+</ul>
+<p><strong>引入挂起操作后的进程状态之间的转换</strong></p>
+<hr>
+<p><strong>进程控制块PCB</strong></p>
+<p>操作系统中，为方便对计算机中各类资源的使用和管理，OS将其抽象为对应的数据结构，提供一组对资源进行管理地命令，方便用户脱离细节使用计算机中各类资源；同时也方便OS协调、记录、查询各类资源地情况。</p>
+<p>操作系统中这一类数据结构通常有<code>内存表</code>、<code>设备表</code>、<code>文件表</code>、<code>进程表</code>。其中<code>进程表</code>又被成为<code>PCB</code>：</p>
+<p>进程表：即进程控制块PCB(Process Control Block)。是进程实体的一部分，记录操作系统所需的、用于描述进程当前状态及管理进程的全部信息。是操作系统中最重要的记录型数据结构。</p>
+<p>PCB使多道程序环境下不能独立运行的程序(数据)成为一个能独立运行的基本单、一个能于其他进程并发执行的进程。</p>
+<ul>
+<li>是独立运行基本单位的标志：程序被配置PCB即可以运行，可以取得OS服务。创建进程即为其创建PCB，销毁进程即回收其PCB，系统中进程的唯一标识即为PCB，系统通过PCB感知进程的存在状态。</li>
+<li>PCB可以记录进程阻塞时的CPU现场，以供再次调度时的现场恢复。</li>
+<li>提供进程管理所需的重要信息：包括程序地址指针、数据地址指针、资源访问支持、进程所需资源清单等。</li>
+<li>提供进程调度所需重要信息：进程状态、优先级、已执行时间、等待时间等。</li>
+<li>实现与其他进程的同步通信：采用信号机制是，每个进程中都设置相应的用于同步的信号量，PCB中也有用于实现进程通信的区域或通信队列指针等。</li>
+</ul>
+<p>PCB中的信息：</p>
+<ul>
+<li>进程标识符：唯一标识一个进程。外部标识符由创建者提供，方便用户访问，还应设置父进程标识及子进程标识。内部标识符由OS设置，为每个进程的唯一数字标识符，通常是进程的序号。</li>
+<li>处理机状态：即处理机上下文，主要是由处理及的各种寄存器中的内容组成的。有<code>通用寄存器</code>(也称用户可视寄存器，用户程序可以访问，暂存信息用，数量较多)、 <code>指令计数器</code>(存放了下一条要访问的指令的地址)、<code>程序状态字PSW</code>(包含状态信息，有条件码、执行方式、中断屏蔽标志等)、<code>用户栈指针</code>(每个进程都有若干个系统栈，用于存放过程和系统调用参数及调用地址。栈指针指向该栈的栈顶。栈指针指向该栈的栈顶)。</li>
+<li>进程调度信息：包括有<code>进程状态</code>、<code>进程优先级</code>、<code>所需其他信息</code>、<code>事件</code>(阻塞原因)。</li>
+<li>进程控制信息：包括有<code>程序和数据地址</code>、<code>进程同步和通信机制</code>、<code>资源清单</code>、<code>链接指针</code>(本进程队列中下一进程的PCB首地址)。</li>
+</ul>
+<p>PCB的组织方式：</p>
+<ul>
+<li>线性方式：所有的进程PCB组织在一个线性列表中，实现简单开销小，但每次查找都需要全表查，进程数目不多可用。</li>
+<li>连接方式：大表中状态相同的进程PCB通过链接字连城一个队列，执行指针和就绪、阻塞、空闲队列的指针分别指向表中某个PCB地址。</li>
+<li>索引方式：在大表之外，按照不同状态为进程的PCB建立索引，索引表用来记录该状态的所有PCB的地址。</li>
+</ul>
+<hr>
+<h3 id="三-进程的控制">三、进程的控制</h3>
+<p>基本功能包括<code>创建进程</code>、<code>终止已完成的进程</code>、<code>对异常进程置阻塞</code>、<code>对与凝重的进程进行状态转换</code>等。进程控制一般由操作系统内核中的原语来实现。</p>
+<p><strong>操作系统内核</strong></p>
+<p>操作系统一般划分为若干层次，不同功能一般置于不同层次中。通常将一些<code>硬件联系紧密的模块</code>(如中断处理程序等)、<code>运行频率较高的模块</code>(如时钟管理、进程调度、许多模块所公用的基本操作等)，都安排在仅靠硬件的软件层中，将它们常驻内存，通常被称为<code>操作系统内核</code>。</p>
+<p>硬件紧密模块和高频运行模块常驻内存有助于：1. 加以保护防止被恶意篡改攻击；2. 提高OS运行效率。</p>
+<p>出于安全考虑，处理机的执行状态有两种：<code>系统态</code>、<code>用户态</code>：</p>
+<ul>
+<li>系统态：又称管态、内核态。权限高，可执行一切指令、访问一切资源，传统OS都在系统态运行</li>
+<li>用户态：又称目态，低执行权限，应用程序一般只能在用户态执行。不能执行OS指令和访问OS资源，保护系统安全。</li>
+</ul>
+<p>OS内核的功能有：<code>支撑功能</code>、<code>资源管理功能</code>：</p>
+<ul>
+<li>支撑功能：中断处理、时钟管理(分配处理机时间片等功能需要)、原语操作(若干指令的集合，是原子操作，功能不可分、不被中断，如链表操作、进程同步等)。</li>
+<li>资源管理：进程管理、存储器管理、设备管理。</li>
+</ul>
+<p><strong>进程的创建</strong></p>
+<p>p53</p>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://ankeliei.github.io/tag/OperatingSystem/" class="tag">
+                    操作系统
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://ankeliei.github.io/post/cbian-liang-lei-xing/">
+                  <h3 class="post-title">
+                    C++变量类型
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+
+  </body>
+</html>

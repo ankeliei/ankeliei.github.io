@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>C++存储类 | 风吹江月</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://ankeliei.github.io/favicon.ico?v=1649514169426">
+<link rel="stylesheet" href="https://ankeliei.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="static、extern、mutable、thread_local（auto、register）
+
+static
+static存储类指示编译器在程序的生命周期内保持局部变量的存在，而不需要每次在进出作用域时进行创建或销毁。因此，stati..." />
+    <meta name="keywords" content="C/C++" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://ankeliei.github.io">
+        <img src="https://ankeliei.github.io/images/avatar.png?v=1649514169426" class="site-logo">
+        <h1 class="site-title">风吹江月</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      温故而知新
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://ankeliei.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">C++存储类</h2>
+            <div class="post-date">2022-04-09</div>
+            
+            <div class="post-content" v-pre>
+              <p><code>static</code>、<code>extern</code>、<code>mutable</code>、<code>thread_local</code>（<code>auto</code>、<code>register</code>）</p>
+<!--more-->
+<h2 id="static">static</h2>
+<p>static存储类指示编译器在程序的生命周期内保持局部变量的存在，而不需要每次在进出作用域时进行创建或销毁。因此，<code>static</code>修饰的局部变量可以在函数调用之间保持局部变量的值；</p>
+<p><code>static</code>修饰全局变量会使其作用域限定在声明的文件中;</p>
+<p><code>static</code>修饰类数据成员时，会导致有一个该成员的副本被所有类共享。</p>
+<pre><code class="language-c++">'类的静态成员变量先于类的对象而存在'
+'类的所有对象共用一个静态成员'
+'如果类的静态成员是共有的，可以通过类名直接访问这个静态成员'
+'静态成员数据在声明的时候类外初始化'
+</code></pre>
+<p>静态局部变量若无显式的初始化，编译器会采取与全局变量相同的初始化方略：<code>每位都置0</code>。</p>
+<p>典型使用就是标识一个计数器，统计函数调用的次数或是类的实例数量。</p>
+<pre><code>## extern
+</code></pre>
+<p>extern用于提供一个全局变量的引用，全局变量对所有的程序文件都是可见的。当使用extern时，对于无法初始化的变量，会把变量名指向一个之前定义过的存储位置。</p>
+<p>当您有多个文件且定义了一个可以在其他文件中使用的全局变量或函数时，可以在其他文件中使用 <em>extern</em> 来得到已定义的变量或函数的引用。可以这么理解，<strong><code>extern</code> 是用来在另一个文件中声明一个全局变量或函数</strong>。</p>
+<p><code>extern</code>通常用于两个或多个文件共享相同的全局变量或函数时。</p>
+<p>例：<code>mian.cpp</code>和<code>support.cpp</code>两个文件使用<code>$ g++ mian.cpp support.cpp -o extern_test</code>编译。</p>
+<pre><code class="language-c++">'main.cpp' 
+#include &lt;iostream&gt;
+ 
+int count ;
+extern void write_extern();
+ 
+int main()
+{
+   count = 5;
+   write_extern();
+}
+</code></pre>
+<pre><code class="language-c++">'support.cpp'
+#include &lt;iostream&gt;
+ 
+extern int count;
+ 
+void write_extern(void)
+{
+   std::cout &lt;&lt; &quot;Count is &quot; &lt;&lt; count &lt;&lt; std::endl;
+}
+</code></pre>
+<p>编译并运行的结果为</p>
+<pre><code class="language-shell">Count is 5
+</code></pre>
+<h2 id="thread_local">thread_local</h2>
+<p>使用 thread_local 说明符声明的变量仅可在它在其上创建的线程上访问。 变量在创建线程时创建，并在销毁线程时销毁。 每个线程都有其自己的变量副本。</p>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://ankeliei.github.io/tag/c_pp/" class="tag">
+                    C/C++
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://ankeliei.github.io/post/cchang-liang/">
+                  <h3 class="post-title">
+                    C++常量
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+
+  </body>
+</html>

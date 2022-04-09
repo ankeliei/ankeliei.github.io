@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>文件系统 | 风吹江月</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://ankeliei.github.io/favicon.ico?v=1649514169426">
+<link rel="stylesheet" href="https://ankeliei.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="文件名和类型
+文件和扩展名
+
+文件名--在不同系统中，对文件名的规定是不同的，典型的是8.3格式，大部分系统也都支持长文件名格式
+扩展名--通常与系统对文件的操作相关
+
+文件类型
+
+用途分类：系统文件、用户文件、库文件
+数据类型：源文件、目..." />
+    <meta name="keywords" content="操作系统" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://ankeliei.github.io">
+        <img src="https://ankeliei.github.io/images/avatar.png?v=1649514169426" class="site-logo">
+        <h1 class="site-title">风吹江月</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      温故而知新
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://ankeliei.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">文件系统</h2>
+            <div class="post-date">2022-04-09</div>
+            
+              <div class="feature-container" style="background-image: url('https://ankeliei.github.io/post-images/wen-jian-xi-tong.png')">
+              </div>
+            
+            <div class="post-content" v-pre>
+              <h2 id="文件名和类型">文件名和类型</h2>
+<h3 id="文件和扩展名">文件和扩展名</h3>
+<ul>
+<li>文件名--在不同系统中，对文件名的规定是不同的，典型的是<code>8.3格式</code>，大部分系统也都支持长文件名格式</li>
+<li>扩展名--通常与系统对文件的操作相关</li>
+</ul>
+<h3 id="文件类型">文件类型</h3>
+<ul>
+<li>用途分类：系统文件、用户文件、库文件</li>
+<li>数据类型：源文件、目标文件、可执行文件</li>
+<li>逻辑结构：有结构文件、无结构文件</li>
+<li>物理结构：顺序文件、链接文件、索引文件</li>
+</ul>
+<h3 id="文件系统层次">文件系统层次</h3>
+<figure data-type="image" tabindex="1"><img src="https://ankeliei.github.io/post-images/1649513582188.png" alt="" loading="lazy"></figure>
+<p>分为三个层次，<code>最底层</code>是对象及其属性说明；<code>中间层</code>是对对象操纵和管理软件的集合；<code>最高层</code>是文件系统提供给用户的接口</p>
+<h3 id="文件操作">文件操作</h3>
+<ul>
+<li>创建</li>
+<li>删除</li>
+<li>读</li>
+<li>写</li>
+<li>设置文件的读写位置</li>
+</ul>
+<h2 id="文件的逻辑结构">文件的逻辑结构</h2>
+<p>区别于物理结构</p>
+<h3 id="文件逻辑结构的类型">文件逻辑结构的类型</h3>
+<h4 id="是否有结构">是否有结构</h4>
+<ul>
+<li>有结构文件</li>
+<li>无结构文件</li>
+</ul>
+<h4 id="文件组织方式">文件组织方式</h4>
+<ul>
+<li>
+<p>顺序文件</p>
+<p>文件是记录的集合。文件中记录的顺序是任意的，一般可以归纳为<code>串结构</code>（即按时间安排记录）、<code>顺序结构</code>(即按文件记录按关键字排序，具有更好的检索效率)</p>
+</li>
+<li>
+<p>索引文件</p>
+</li>
+<li>
+<p>索引顺序文件</p>
+</li>
+</ul>
+<h3 id="记录寻址">记录寻址</h3>
+<h4 id="隐式寻址">隐式寻址</h4>
+<p>对于定长记录的顺序文件，若当前记录的逻辑地址已知，则易确定下一记录的逻辑地址地址</p>
+<h4 id="显式寻址">显式寻址</h4>
+<h3 id="索引文件">索引文件</h3>
+<h4 id="按关键字建立索引">按关键字建立索引</h4>
+<p>对变长记录文件建立索引表，记录每一个记录的地址。索引表本身是一个定长记录的顺序文件。对文件进行检索时，根据关键字，在索引表中应用二分查找法等算法，加速索引</p>
+<h3 id="索引顺序文件">索引顺序文件</h3>
+<h4 id="一级索引顺序文件">一级索引顺序文件</h4>
+<p>将变长记录顺序文件所有记录分组，为组建立索引项，方便索引，甚至可以有二级索引表。</p>
+<h4 id="直接地址文件">直接地址文件</h4>
+<h4 id="哈希文件">哈希文件</h4>
+<p>一种直接文件，利用哈希函数将关键字转换为相应记录的地址。</p>
+<h2 id="文件目录">文件目录</h2>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://ankeliei.github.io/tag/OperatingSystem/" class="tag">
+                    操作系统
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://ankeliei.github.io/post/jin-cheng-de-miao-shu-yu-kong-zhi/">
+                  <h3 class="post-title">
+                     进程的描述与控制
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+
+  </body>
+</html>

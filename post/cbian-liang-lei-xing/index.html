@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>C++变量类型 | 风吹江月</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://ankeliei.github.io/favicon.ico?v=1649514169426">
+<link rel="stylesheet" href="https://ankeliei.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="变量
+变量是程序可操作的存储区的名称。C++中每个变量都有指定的类型，不同类型的变量有不同的存储大小和布局。变量存储于内存中，运算符可应用于变量上。
+变量的类型
+
+
+
+类型
+解释
+
+
+
+
+bool
+存储true或false
+
+
+char
+一..." />
+    <meta name="keywords" content="C/C++" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://ankeliei.github.io">
+        <img src="https://ankeliei.github.io/images/avatar.png?v=1649514169426" class="site-logo">
+        <h1 class="site-title">风吹江月</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      温故而知新
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://ankeliei.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">C++变量类型</h2>
+            <div class="post-date">2022-04-09</div>
+            
+            <div class="post-content" v-pre>
+              <h2 id="变量">变量</h2>
+<p>变量是程序可操作的存储区的名称。C++中<strong>每个变量都有指定的类型</strong>，不同类型的变量有不同的存储大小和布局。变量存储于内存中，运算符可应用于变量上。</p>
+<h2 id="变量的类型">变量的类型</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">类型</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">bool</td>
+<td>存储true或false</td>
+</tr>
+<tr>
+<td style="text-align:center">char</td>
+<td>一个字符，通常占一个字节。整数类型。</td>
+</tr>
+<tr>
+<td style="text-align:center">int</td>
+<td>整形，占四字节。</td>
+</tr>
+<tr>
+<td style="text-align:center">float</td>
+<td>单精度浮点数，四字节，1位符号，8位指数，23位尾数</td>
+</tr>
+<tr>
+<td style="text-align:center">double</td>
+<td>双精度浮点数，八字节，1位符号，11位指数，52位尾数</td>
+</tr>
+<tr>
+<td style="text-align:center">void</td>
+<td>类型缺失</td>
+</tr>
+<tr>
+<td style="text-align:center">wchar_t</td>
+<td>宽字符型</td>
+</tr>
+</tbody>
+</table>
+<p>另外可以定义<code>枚举</code>、<code>指针</code>、<code>数组</code>、<code>引用</code>、<code>数据结构</code>、<code>类</code>等。</p>
+<h2 id="变量的定义和初始化">变量的定义和初始化</h2>
+<p>变量的定义即要求编译器在此处创建变量的存储：</p>
+<pre><code>typeA var;						声明一个变量
+typeB var1, var2, var3;			声明多个变量
+</code></pre>
+<p>变量可以在定义的时候被初始化：</p>
+<pre><code class="language-c++">int a;							//声明时未初始化
+int b = 3;						//声明时初始化为3
+</code></pre>
+<p>定义时没有初始化的==带有静态存储持续时间的（一般表现为全局变量）==变量默认初始化为NULL，即所有字节都是0；</p>
+<p>其他所有变量（一般表现为<mark>局部变量</mark>）的初始值未定义的话为<mark>为其开辟的存储空间的原内容（乱码）</mark>。</p>
+<p><mark><strong>强烈建议定义变量时手动初始化以确保安全</strong></mark></p>
+<p>在变量创建的时候指明其类型有助于划定对应的空间，和未来程序以何种方式处理（解读）此变量的指针。</p>
+<p><strong>变量的<mark>声明</mark>不同于变量的定义</strong></p>
+<pre><code class="language-c++">int a = 0;     //定义并声明了变量 a
+extern int a;  //只是声明了有一个变量 a 存在，具体 a 在哪定义的，需要编译器编译的时候去找。
+</code></pre>
+<p>类似于函数的<mark>声明</mark>与函数的<mark>定义</mark>之间的区别。</p>
+<pre><code class="language-c++">void fun1();  //函数声明
+
+void fun1(){  //函数定义
+    cout&lt;&lt;&quot;fun1&quot;&lt;&lt;endl;
+}
+</code></pre>
+<h2 id="类型转化规则">类型转化规则</h2>
+<p>分为<mark>自动转化</mark>、<mark>强制转化</mark></p>
+<h3 id="自动转化">自动转化</h3>
+<ol>
+<li>参与运算的量的类型不同，则转化为相同后运算</li>
+<li>数据类型转换力求保证精度：
+<ul>
+<li>向字节数高的方向靠拢；</li>
+<li>向无符号的方向靠拢。</li>
+</ul>
+</li>
+<li>浮点数运算统一转换为double双精度再进行运算。</li>
+<li>char与short运算时先转化为int再参与运算。</li>
+<li>赋值运算保留左值的数据类型（可能会丢失精度）。</li>
+</ol>
+<h3 id="强制转化">强制转化</h3>
+<p>可以手动通过类型转化运算来实现：一般形式为==（类型说明符）表达式==的形式。</p>
+<pre><code class="language-c++">int a = 1;
+double b = 2.1;
+cout &lt;&lt; &quot;a + b = &quot; &lt;&lt; a + (int)b &lt;&lt; endl;  //输出为a + b = 3
+</code></pre>
+<h2 id="c赋值运算符的左值lvalue和右值rvalue">C++赋值运算符的左值(lvalue)和右值(rvalue)</h2>
+<p>** 左值 (lvalue, locator value) ** 表示了一个占据内存中某个可识别的位置（也就是一个地址）的对象，左值可以被操作。</p>
+<p>** 右值(rvalue) ** 表示了一个非内存可识别对象的值，不能被操作。</p>
+<p>左值和右值的说法常在错误信息中出现。</p>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://ankeliei.github.io/tag/c_pp/" class="tag">
+                    C/C++
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://ankeliei.github.io/post/hello-gridea/">
+                  <h3 class="post-title">
+                    Hello Gridea
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+
+  </body>
+</html>
