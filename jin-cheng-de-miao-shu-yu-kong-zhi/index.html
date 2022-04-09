@@ -1,13 +1,20 @@
+<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title> 进程的描述与控制 | Gridea</title>
-<link rel="shortcut icon" href="https://ankeliei.github.io/favicon.ico?v=1649511292931">
-<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+    <meta charset="utf-8" >
+
+<title> 进程的描述与控制 | 风吹江月</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://ankeliei.github.io/favicon.ico?v=1649511813207">
 <link rel="stylesheet" href="https://ankeliei.github.io/styles/main.css">
-<link rel="alternate" type="application/atom+xml" title=" 进程的描述与控制 | Gridea - Atom Feed" href="https://ankeliei.github.io/atom.xml">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
 
 
@@ -17,82 +24,81 @@
 描述程序执行先后顺序，是一个有向无循环图。图中的每一个节点可以表示一个进程或程序段，结点间的有向线段表示一种偏序或前趋关系。
 一些概念：直接前趋、直接后继、初始结点、终止..." />
     <meta name="keywords" content="" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
-    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
   </head>
   <body>
-    <div class="main">
-      <div class="main-content">
-        <div class="site-header">
-  <a href="https://ankeliei.github.io">
-  <img class="avatar" src="https://ankeliei.github.io/images/avatar.png?v=1649511292931" alt="">
-  </a>
-  <h1 class="site-title">
-    Gridea
-  </h1>
-  <p class="site-description">
-    温故而知新
-  </p>
-  <div class="menu-container">
-    
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://ankeliei.github.io">
+        <img src="https://ankeliei.github.io/images/avatar.png?v=1649511813207" class="site-logo">
+        <h1 class="site-title">风吹江月</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
       
-        <a href="/" class="menu">
-          首页
-        </a>
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
       
-    
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
       
-        <a href="/archives" class="menu">
-          归档
-        </a>
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
       
-    
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
       
-        <a href="/tags" class="menu">
-          标签
-        </a>
-      
-    
-      
-        <a href="/post/about" class="menu">
-          关于
-        </a>
-      
-    
+    </div>
   </div>
-  <div class="social-container">
-    
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
       
-    
+        
       
-    
+        
       
-    
+        
       
-    
+        
       
-    
+        
+      
+    </div>
+    <div class="site-description">
+      温故而知新
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://ankeliei.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
   </div>
 </div>
 
-        <div class="post-detail">
-          <article class="post">
-            <h2 class="post-title">
-               进程的描述与控制
-            </h2>
-            <div class="post-info">
-              <span>
-                2022-04-09
-              </span>
-              <span>
-                13 min read
-              </span>
-              
-            </div>
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title"> 进程的描述与控制</h2>
+            <div class="post-date">2022-04-09</div>
             
-            <div class="post-content-wrapper">
-              <div class="post-content">
-                <h3 id="一-前驱图和程序执行">一、前驱图和程序执行</h3>
+            <div class="post-content" v-pre>
+              <h3 id="一-前驱图和程序执行">一、前驱图和程序执行</h3>
 <hr>
 <h5 id="前驱图precedence-graph">前驱图(Precedence Graph)：</h5>
 <p>描述程序执行先后顺序，是一个<code>有向无循环图</code>。图中的每一个节点可以表示一个进程或程序段，结点间的有向线段表示一种<code>偏序</code>或<code>前趋</code>关系。<br>
@@ -201,104 +207,45 @@
 <p><strong>进程的创建</strong></p>
 <p>p53</p>
 
-              </div>
-              <div class="toc-container">
-                <ul class="markdownIt-TOC">
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#%E4%B8%80-%E5%89%8D%E9%A9%B1%E5%9B%BE%E5%92%8C%E7%A8%8B%E5%BA%8F%E6%89%A7%E8%A1%8C">一、前驱图和程序执行</a><br>
-*
-<ul>
-<li><a href="#%E5%89%8D%E9%A9%B1%E5%9B%BEprecedence-graph">前驱图(Precedence Graph)：</a></li>
-<li><a href="#%E7%A8%8B%E5%BA%8F%E7%9A%84%E9%A1%BA%E5%BA%8F%E6%89%A7%E8%A1%8C">程序的顺序执行：</a></li>
-<li><a href="#%E7%A8%8B%E5%BA%8F%E7%9A%84%E5%B9%B6%E5%8F%91%E6%89%A7%E8%A1%8C">程序的并发执行：</a></li>
-</ul>
-</li>
-<li><a href="#%E4%BA%8C-%E8%BF%9B%E7%A8%8B%E7%9A%84%E6%8F%8F%E8%BF%B0">二、进程的描述</a><br>
-*
-<ul>
-<li><a href="#%E8%BF%9B%E7%A8%8B%E7%9A%84%E5%AE%9A%E4%B9%89">进程的定义</a></li>
-<li><a href="#%E8%BF%9B%E7%A8%8B%E7%9A%84%E7%89%B9%E5%BE%81">进程的特征</a></li>
-<li><a href="#%E8%BF%9B%E7%A8%8B%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%8A%B6%E6%80%81%E5%8F%8A%E8%BD%AC%E6%8D%A2">进程的基本状态及转换</a></li>
-<li><a href="#%E6%8C%82%E8%B5%B7%E6%93%8D%E4%BD%9C%E5%92%8C%E8%BF%9B%E7%A8%8B%E7%8A%B6%E6%80%81%E7%9A%84%E8%BD%AC%E5%8C%96">挂起操作和进程状态的转化</a></li>
-</ul>
-</li>
-<li><a href="#%E4%B8%89-%E8%BF%9B%E7%A8%8B%E7%9A%84%E6%8E%A7%E5%88%B6">三、进程的控制</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-
-              </div>
             </div>
-          </article>
-        </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://ankeliei.github.io/cbian-liang-lei-xing/">
+                  <h3 class="post-title">
+                    C++变量类型
+                  </h3>
+                </a>
+              </div>
+            
 
-        
-          <div class="next-post">
-            <div class="next">下一篇</div>
-            <a href="https://ankeliei.github.io/cbian-liang-lei-xing/">
-              <h3 class="post-title">
-                C++变量类型
-              </h3>
-            </a>
+            
+
           </div>
-        
 
-        
-
-        <div class="site-footer">
-  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
-  <a class="rss" href="https://ankeliei.github.io/atom.xml" target="_blank">
-    <i class="ri-rss-line"></i> RSS
-  </a>
-</div>
-
+        </div>
       </div>
     </div>
 
-    <script>
-      hljs.initHighlightingOnLoad()
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
 
-      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+AOS.init();
 
-      // This should probably be throttled.
-      // Especially because it triggers during smooth scrolling.
-      // https://lodash.com/docs/4.17.10#throttle
-      // You could do like...
-      // window.addEventListener("scroll", () => {
-      //    _.throttle(doThatStuff, 100);
-      // });
-      // Only not doing it here to keep this Pen dependency-free.
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
 
-      window.addEventListener("scroll", event => {
-        let fromTop = window.scrollY;
+</script>
 
-        mainNavLinks.forEach((link, index) => {
-          let section = document.getElementById(decodeURI(link.hash).substring(1));
-          let nextSection = null
-          if (mainNavLinks[index + 1]) {
-            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
-          }
-          if (section.offsetTop <= fromTop) {
-            if (nextSection) {
-              if (nextSection.offsetTop > fromTop) {
-                link.classList.add("current");
-              } else {
-                link.classList.remove("current");    
-              }
-            } else {
-              link.classList.add("current");
-            }
-          } else {
-            link.classList.remove("current");
-          }
-        });
-      });
 
-    </script>
+
+
+
+
   </body>
 </html>
