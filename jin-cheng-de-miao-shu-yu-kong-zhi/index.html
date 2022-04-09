@@ -1,22 +1,98 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://ankeliei.github.io</id>
-    <title>Gridea</title>
-    <updated>2022-04-09T13:35:05.692Z</updated>
-    <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://ankeliei.github.io"/>
-    <link rel="self" href="https://ankeliei.github.io/atom.xml"/>
-    <subtitle>温故而知新</subtitle>
-    <logo>https://ankeliei.github.io/images/avatar.png</logo>
-    <icon>https://ankeliei.github.io/favicon.ico</icon>
-    <rights>All rights reserved 2022, Gridea</rights>
-    <entry>
-        <title type="html"><![CDATA[ 进程的描述与控制]]></title>
-        <id>https://ankeliei.github.io/jin-cheng-de-miao-shu-yu-kong-zhi/</id>
-        <link href="https://ankeliei.github.io/jin-cheng-de-miao-shu-yu-kong-zhi/">
-        </link>
-        <updated>2022-04-09T11:56:11.000Z</updated>
-        <content type="html"><![CDATA[<h3 id="一-前驱图和程序执行">一、前驱图和程序执行</h3>
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title> 进程的描述与控制 | Gridea</title>
+<link rel="shortcut icon" href="https://ankeliei.github.io/favicon.ico?v=1649511292931">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://ankeliei.github.io/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title=" 进程的描述与控制 | Gridea - Atom Feed" href="https://ankeliei.github.io/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="一、前驱图和程序执行
+
+前驱图(Precedence Graph)：
+描述程序执行先后顺序，是一个有向无循环图。图中的每一个节点可以表示一个进程或程序段，结点间的有向线段表示一种偏序或前趋关系。
+一些概念：直接前趋、直接后继、初始结点、终止..." />
+    <meta name="keywords" content="" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://ankeliei.github.io">
+  <img class="avatar" src="https://ankeliei.github.io/images/avatar.png?v=1649511292931" alt="">
+  </a>
+  <h1 class="site-title">
+    Gridea
+  </h1>
+  <p class="site-description">
+    温故而知新
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+               进程的描述与控制
+            </h2>
+            <div class="post-info">
+              <span>
+                2022-04-09
+              </span>
+              <span>
+                13 min read
+              </span>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <h3 id="一-前驱图和程序执行">一、前驱图和程序执行</h3>
 <hr>
 <h5 id="前驱图precedence-graph">前驱图(Precedence Graph)：</h5>
 <p>描述程序执行先后顺序，是一个<code>有向无循环图</code>。图中的每一个节点可以表示一个进程或程序段，结点间的有向线段表示一种<code>偏序</code>或<code>前趋</code>关系。<br>
@@ -124,137 +200,105 @@
 </ul>
 <p><strong>进程的创建</strong></p>
 <p>p53</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[C++变量类型]]></title>
-        <id>https://ankeliei.github.io/cbian-liang-lei-xing/</id>
-        <link href="https://ankeliei.github.io/cbian-liang-lei-xing/">
-        </link>
-        <updated>2022-04-09T11:52:07.000Z</updated>
-        <content type="html"><![CDATA[<h2 id="变量">变量</h2>
-<p>变量是程序可操作的存储区的名称。C++中<strong>每个变量都有指定的类型</strong>，不同类型的变量有不同的存储大小和布局。变量存储于内存中，运算符可应用于变量上。</p>
-<h2 id="变量的类型">变量的类型</h2>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">类型</th>
-<th>解释</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">bool</td>
-<td>存储true或false</td>
-</tr>
-<tr>
-<td style="text-align:center">char</td>
-<td>一个字符，通常占一个字节。整数类型。</td>
-</tr>
-<tr>
-<td style="text-align:center">int</td>
-<td>整形，占四字节。</td>
-</tr>
-<tr>
-<td style="text-align:center">float</td>
-<td>单精度浮点数，四字节，1位符号，8位指数，23位尾数</td>
-</tr>
-<tr>
-<td style="text-align:center">double</td>
-<td>双精度浮点数，八字节，1位符号，11位指数，52位尾数</td>
-</tr>
-<tr>
-<td style="text-align:center">void</td>
-<td>类型缺失</td>
-</tr>
-<tr>
-<td style="text-align:center">wchar_t</td>
-<td>宽字符型</td>
-</tr>
-</tbody>
-</table>
-<p>另外可以定义<code>枚举</code>、<code>指针</code>、<code>数组</code>、<code>引用</code>、<code>数据结构</code>、<code>类</code>等。</p>
-<h2 id="变量的定义和初始化">变量的定义和初始化</h2>
-<p>变量的定义即要求编译器在此处创建变量的存储：</p>
-<pre><code>typeA var;						声明一个变量
-typeB var1, var2, var3;			声明多个变量
-</code></pre>
-<p>变量可以在定义的时候被初始化：</p>
-<pre><code class="language-c++">int a;							//声明时未初始化
-int b = 3;						//声明时初始化为3
-</code></pre>
-<p>定义时没有初始化的==带有静态存储持续时间的（一般表现为全局变量）==变量默认初始化为NULL，即所有字节都是0；</p>
-<p>其他所有变量（一般表现为<mark>局部变量</mark>）的初始值未定义的话为<mark>为其开辟的存储空间的原内容（乱码）</mark>。</p>
-<p><mark><strong>强烈建议定义变量时手动初始化以确保安全</strong></mark></p>
-<p>在变量创建的时候指明其类型有助于划定对应的空间，和未来程序以何种方式处理（解读）此变量的指针。</p>
-<p><strong>变量的<mark>声明</mark>不同于变量的定义</strong></p>
-<pre><code class="language-c++">int a = 0;     //定义并声明了变量 a
-extern int a;  //只是声明了有一个变量 a 存在，具体 a 在哪定义的，需要编译器编译的时候去找。
-</code></pre>
-<p>类似于函数的<mark>声明</mark>与函数的<mark>定义</mark>之间的区别。</p>
-<pre><code class="language-c++">void fun1();  //函数声明
 
-void fun1(){  //函数定义
-    cout&lt;&lt;&quot;fun1&quot;&lt;&lt;endl;
-}
-</code></pre>
-<h2 id="类型转化规则">类型转化规则</h2>
-<p>分为<mark>自动转化</mark>、<mark>强制转化</mark></p>
-<h3 id="自动转化">自动转化</h3>
-<ol>
-<li>参与运算的量的类型不同，则转化为相同后运算</li>
-<li>数据类型转换力求保证精度：
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li>
 <ul>
-<li>向字节数高的方向靠拢；</li>
-<li>向无符号的方向靠拢。</li>
+<li>
+<ul>
+<li><a href="#%E4%B8%80-%E5%89%8D%E9%A9%B1%E5%9B%BE%E5%92%8C%E7%A8%8B%E5%BA%8F%E6%89%A7%E8%A1%8C">一、前驱图和程序执行</a><br>
+*
+<ul>
+<li><a href="#%E5%89%8D%E9%A9%B1%E5%9B%BEprecedence-graph">前驱图(Precedence Graph)：</a></li>
+<li><a href="#%E7%A8%8B%E5%BA%8F%E7%9A%84%E9%A1%BA%E5%BA%8F%E6%89%A7%E8%A1%8C">程序的顺序执行：</a></li>
+<li><a href="#%E7%A8%8B%E5%BA%8F%E7%9A%84%E5%B9%B6%E5%8F%91%E6%89%A7%E8%A1%8C">程序的并发执行：</a></li>
 </ul>
 </li>
-<li>浮点数运算统一转换为double双精度再进行运算。</li>
-<li>char与short运算时先转化为int再参与运算。</li>
-<li>赋值运算保留左值的数据类型（可能会丢失精度）。</li>
-</ol>
-<h3 id="强制转化">强制转化</h3>
-<p>可以手动通过类型转化运算来实现：一般形式为==（类型说明符）表达式==的形式。</p>
-<pre><code class="language-c++">int a = 1;
-double b = 2.1;
-cout &lt;&lt; &quot;a + b = &quot; &lt;&lt; a + (int)b &lt;&lt; endl;  //输出为a + b = 3
-</code></pre>
-<h2 id="c赋值运算符的左值lvalue和右值rvalue">C++赋值运算符的左值(lvalue)和右值(rvalue)</h2>
-<p><strong>左值 (lvalue, locator value)</strong> 表示了一个占据内存中某个可识别的位置（也就是一个地址）的对象，左值可以被操作。</p>
-<p>**右值(rvalue)**表示了一个非内存可识别对象的值，不能被操作。</p>
-<p>左值和右值的说法常在错误信息中出现。</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Hello Gridea]]></title>
-        <id>https://ankeliei.github.io/hello-gridea/</id>
-        <link href="https://ankeliei.github.io/hello-gridea/">
-        </link>
-        <updated>2018-12-11T16:00:00.000Z</updated>
-        <summary type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
-✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
-✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
-<!-- more -->
-<p><a href="https://github.com/getgridea/gridea">Github</a><br>
-<a href="https://gridea.dev/">Gridea 主页</a><br>
-<a href="http://fehey.com/">示例网站</a></p>
-<h2 id="特性">特性👇</h2>
-<p>📝  你可以使用最酷的 <strong>Markdown</strong> 语法，进行快速创作</p>
-<p>🌉  你可以给文章配上精美的封面图和在文章任意位置插入图片</p>
-<p>🏷️  你可以对文章进行标签分组</p>
-<p>📋  你可以自定义菜单，甚至可以创建外部链接菜单</p>
-<p>💻  你可以在 <strong>Windows</strong>，<strong>MacOS</strong> 或 <strong>Linux</strong> 设备上使用此客户端</p>
-<p>🌎  你可以使用 <strong>𝖦𝗂𝗍𝗁𝗎𝖻 𝖯𝖺𝗀𝖾𝗌</strong> 或 <strong>Coding Pages</strong> 向世界展示，未来将支持更多平台</p>
-<p>💬  你可以进行简单的配置，接入 <a href="https://github.com/gitalk/gitalk">Gitalk</a> 或 <a href="https://github.com/SukkaW/DisqusJS">DisqusJS</a> 评论系统</p>
-<p>🇬🇧  你可以使用<strong>中文简体</strong>或<strong>英语</strong></p>
-<p>🌁  你可以任意使用应用内默认主题或任意第三方主题，强大的主题自定义能力</p>
-<p>🖥  你可以自定义源文件夹，利用 OneDrive、百度网盘、iCloud、Dropbox 等进行多设备同步</p>
-<p>🌱 当然 <strong>Gridea</strong> 还很年轻，有很多不足，但请相信，它会不停向前 🏃</p>
-<p>未来，它一定会成为你离不开的伙伴</p>
-<p>尽情发挥你的才华吧！</p>
-<p>😘 Enjoy~</p>
-]]></content>
-    </entry>
-</feed>
+<li><a href="#%E4%BA%8C-%E8%BF%9B%E7%A8%8B%E7%9A%84%E6%8F%8F%E8%BF%B0">二、进程的描述</a><br>
+*
+<ul>
+<li><a href="#%E8%BF%9B%E7%A8%8B%E7%9A%84%E5%AE%9A%E4%B9%89">进程的定义</a></li>
+<li><a href="#%E8%BF%9B%E7%A8%8B%E7%9A%84%E7%89%B9%E5%BE%81">进程的特征</a></li>
+<li><a href="#%E8%BF%9B%E7%A8%8B%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%8A%B6%E6%80%81%E5%8F%8A%E8%BD%AC%E6%8D%A2">进程的基本状态及转换</a></li>
+<li><a href="#%E6%8C%82%E8%B5%B7%E6%93%8D%E4%BD%9C%E5%92%8C%E8%BF%9B%E7%A8%8B%E7%8A%B6%E6%80%81%E7%9A%84%E8%BD%AC%E5%8C%96">挂起操作和进程状态的转化</a></li>
+</ul>
+</li>
+<li><a href="#%E4%B8%89-%E8%BF%9B%E7%A8%8B%E7%9A%84%E6%8E%A7%E5%88%B6">三、进程的控制</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://ankeliei.github.io/cbian-liang-lei-xing/">
+              <h3 class="post-title">
+                C++变量类型
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://ankeliei.github.io/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>
