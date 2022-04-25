@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ankeliei.github.io</id>
     <title>Okk</title>
-    <updated>2022-04-25T02:11:43.853Z</updated>
+    <updated>2022-04-25T02:12:28.123Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ankeliei.github.io"/>
     <link rel="self" href="https://ankeliei.github.io/atom.xml"/>
@@ -10,6 +10,51 @@
     <logo>https://ankeliei.github.io/images/avatar.png</logo>
     <icon>https://ankeliei.github.io/favicon.ico</icon>
     <rights>All rights reserved 2022, Okk</rights>
+    <entry>
+        <title type="html"><![CDATA[强化学习初识]]></title>
+        <id>https://ankeliei.github.io/post/qiang-hua-xue-xi-chu-shi/</id>
+        <link href="https://ankeliei.github.io/post/qiang-hua-xue-xi-chu-shi/">
+        </link>
+        <updated>2022-04-25T01:42:18.000Z</updated>
+        <summary type="html"><![CDATA[<p>强化学习中的基础概念与基本思想</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>强化学习中的基础概念与基本思想</p>
+<!-- more -->
+<h1 id="强化学习基础构成">强化学习基础构成</h1>
+<ul>
+<li>环境Environment</li>
+<li>智能体Agent</li>
+<li>目标Goal（长远目标）</li>
+</ul>
+<h1 id="强化学习的进一步构成">强化学习的进一步构成</h1>
+<ul>
+<li>状态State</li>
+<li>动作Action</li>
+<li>奖励Reward（单步奖励）</li>
+</ul>
+<h1 id="强化学习核心要素">强化学习核心要素</h1>
+<ul>
+<li>策略Policy</li>
+<li>价值Value，有的算法不依赖价值，直接学习策略，不是学习重点<br>
+状态价值函数，输入状态，输出预期奖励之和<br>
+状态行动价值函数，输入状态与行动，输出预期奖励之和</li>
+</ul>
+<h1 id="强化学习两个特点">强化学习两个特点</h1>
+<ul>
+<li>Trial and Error 试错</li>
+<li>Delayed Reward 延迟奖励<br>
+每一步action具有value，但不一定有Reward。需要考虑Credit Assignment以及Backpropagation（分数分配与反向传播）</li>
+</ul>
+<h1 id="强化学习一个问题">强化学习一个问题</h1>
+<ul>
+<li>Exploration(探索) vs. Exploitation(利用)<br>
+探索未知规则与利用已知价值函数之间的权衡</li>
+</ul>
+<h1 id="以围棋为例">以围棋为例</h1>
+<p>环境为棋盘，agent为玩家，状态为棋盘上每点的空、黑、白三种状态，动作为玩家向棋盘落子，奖励为落子是否获胜。<br>
+价值函数：在某状态下的可能动作对应的预期奖励之和。</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[C++函数]]></title>
         <id>https://ankeliei.github.io/post/chan-shu/</id>

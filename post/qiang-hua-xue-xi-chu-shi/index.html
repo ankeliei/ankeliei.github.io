@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>操作系统 | Okk</title>
+<title>强化学习初识 | Okk</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
@@ -18,7 +18,24 @@
 
 
 
-    <meta name="description" content="突来人间一两风&lt;br&gt;吹皱江月三千梦">
+    <meta name="description" content="强化学习中的基础概念与基本思想
+
+强化学习基础构成
+
+环境Environment
+智能体Agent
+目标Goal（长远目标）
+
+强化学习的进一步构成
+
+状态State
+动作Action
+奖励Reward（单步奖励）
+
+强化学习核心要素
+
+策..." />
+    <meta name="keywords" content="" />
   </head>
   <body>
     <div id="app" class="main">
@@ -88,74 +105,66 @@
 
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
-          <h2 class="current-tag">标签: 操作系统</h2>
-          
-            <article class="post-item">
-              <div class="left">
-                <a href="https://ankeliei.github.io/post/zhong-duan/">
-                  <h2 class="post-title">中断</h2>
-                </a>
-                <div class="post-date">
-                  2022-04-09
-                </div>
-                <div class="post-abstract">
-                  
-                </div>
+          <div class="post-detail">
+            <h2 class="post-title">强化学习初识</h2>
+            <div class="post-date">2022-04-25</div>
+            
+              <div class="feature-container" style="background-image: url('https://ankeliei.github.io/post-images/qiang-hua-xue-xi-chu-shi.png')">
               </div>
-              
-                <a class="right" href="https://ankeliei.github.io/post/zhong-duan/">
-                  <div class="feature-container" style="background-image: url('https://ankeliei.github.io/post-images/zhong-duan.png')">
-                  </div>
-                </a>
-              
-            </article>
-          
-            <article class="post-item">
-              <div class="left">
-                <a href="https://ankeliei.github.io/post/wen-jian-xi-tong/">
-                  <h2 class="post-title">文件系统</h2>
-                </a>
-                <div class="post-date">
-                  2022-04-09
-                </div>
-                <div class="post-abstract">
-                  
-                </div>
-              </div>
-              
-                <a class="right" href="https://ankeliei.github.io/post/wen-jian-xi-tong/">
-                  <div class="feature-container" style="background-image: url('https://ankeliei.github.io/post-images/wen-jian-xi-tong.png')">
-                  </div>
-                </a>
-              
-            </article>
-          
-            <article class="post-item">
-              <div class="left">
-                <a href="https://ankeliei.github.io/post/jin-cheng-de-miao-shu-yu-kong-zhi/">
-                  <h2 class="post-title"> 进程的描述与控制</h2>
-                </a>
-                <div class="post-date">
-                  2022-04-09
-                </div>
-                <div class="post-abstract">
-                  <p>现代操作系统对进程的组织方式</p>
+            
+            <div class="post-content" v-pre>
+              <p>强化学习中的基础概念与基本思想</p>
+<!-- more -->
+<h1 id="强化学习基础构成">强化学习基础构成</h1>
+<ul>
+<li>环境Environment</li>
+<li>智能体Agent</li>
+<li>目标Goal（长远目标）</li>
+</ul>
+<h1 id="强化学习的进一步构成">强化学习的进一步构成</h1>
+<ul>
+<li>状态State</li>
+<li>动作Action</li>
+<li>奖励Reward（单步奖励）</li>
+</ul>
+<h1 id="强化学习核心要素">强化学习核心要素</h1>
+<ul>
+<li>策略Policy</li>
+<li>价值Value，有的算法不依赖价值，直接学习策略，不是学习重点<br>
+状态价值函数，输入状态，输出预期奖励之和<br>
+状态行动价值函数，输入状态与行动，输出预期奖励之和</li>
+</ul>
+<h1 id="强化学习两个特点">强化学习两个特点</h1>
+<ul>
+<li>Trial and Error 试错</li>
+<li>Delayed Reward 延迟奖励<br>
+每一步action具有value，但不一定有Reward。需要考虑Credit Assignment以及Backpropagation（分数分配与反向传播）</li>
+</ul>
+<h1 id="强化学习一个问题">强化学习一个问题</h1>
+<ul>
+<li>Exploration(探索) vs. Exploitation(利用)<br>
+探索未知规则与利用已知价值函数之间的权衡</li>
+</ul>
+<h1 id="以围棋为例">以围棋为例</h1>
+<p>环境为棋盘，agent为玩家，状态为棋盘上每点的空、黑、白三种状态，动作为玩家向棋盘落子，奖励为落子是否获胜。<br>
+价值函数：在某状态下的可能动作对应的预期奖励之和。</p>
 
-                </div>
-              </div>
-              
-                <a class="right" href="https://ankeliei.github.io/post/jin-cheng-de-miao-shu-yu-kong-zhi/">
-                  <div class="feature-container" style="background-image: url('https://ankeliei.github.io/post-images/jin-cheng-de-miao-shu-yu-kong-zhi.png')">
-                  </div>
+            </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://ankeliei.github.io/post/chan-shu/">
+                  <h3 class="post-title">
+                    C++函数
+                  </h3>
                 </a>
-              
-            </article>
-          
+              </div>
+            
 
-          <div class="pagination-container">
-  
-  
-</div>
+            
+
+          </div>
 
         </div>
       </div>
