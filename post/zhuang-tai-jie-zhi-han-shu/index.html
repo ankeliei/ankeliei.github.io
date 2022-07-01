@@ -1,24 +1,109 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://ankeliei.github.io</id>
-    <title>Okk</title>
-    <updated>2022-07-01T08:05:01.406Z</updated>
-    <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://ankeliei.github.io"/>
-    <link rel="self" href="https://ankeliei.github.io/atom.xml"/>
-    <subtitle>突来人间一两风&lt;br&gt;吹皱江月三千梦</subtitle>
-    <logo>https://ankeliei.github.io/images/avatar.png</logo>
-    <icon>https://ankeliei.github.io/favicon.ico</icon>
-    <rights>All rights reserved 2022, Okk</rights>
-    <entry>
-        <title type="html"><![CDATA[状态价值函数]]></title>
-        <id>https://ankeliei.github.io/post/zhuang-tai-jie-zhi-han-shu/</id>
-        <link href="https://ankeliei.github.io/post/zhuang-tai-jie-zhi-han-shu/">
-        </link>
-        <updated>2022-04-25T06:49:01.000Z</updated>
-        <summary type="html"><![CDATA[<p>强化学习的状态价值函数与价值期望损失问题</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>强化学习的状态价值函数与价值期望损失问题</p>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>状态价值函数 | Okk</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://ankeliei.github.io/favicon.ico?v=1656662563532">
+<link rel="stylesheet" href="https://ankeliei.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="强化学习的状态价值函数与价值期望损失问题
+
+样本平均估计价值
+在多臂老虎机问题中：
+Qn+1=1n∑i=1nRiQ_{n+1} = \frac{1}{n} \sum_{i = 1} ^{n} R_i 
+Qn+1​=n1​i=1∑n​Ri​
+..." />
+    <meta name="keywords" content="强化学习" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://ankeliei.github.io">
+        <img src="https://ankeliei.github.io/images/avatar.png?v=1656662563532" class="site-logo">
+        <h1 class="site-title">Okk</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      突来人间一两风<br>吹皱江月三千梦
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://ankeliei.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">状态价值函数</h2>
+            <div class="post-date">2022-04-25</div>
+            
+              <div class="feature-container" style="background-image: url('https://ankeliei.github.io/post-images/zhuang-tai-jie-zhi-han-shu.jpg')">
+              </div>
+            
+            <div class="post-content" v-pre>
+              <p>强化学习的状态价值函数与价值期望损失问题</p>
 <!-- more -->
 <h2 id="样本平均估计价值">样本平均估计价值</h2>
 <p>在多臂老虎机问题中：</p>
@@ -68,681 +153,54 @@
 </blockquote>
 <p>值得注意的是：</p>
 <p><code>样本平均估计</code>，价值的初始估计值<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>Q</mi><mn>1</mn></msub></mrow><annotation encoding="application/x-tex">Q_1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault">Q</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>对之后的结果无影响，<code>加权平均</code>则不然</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[强化学习初识]]></title>
-        <id>https://ankeliei.github.io/post/qiang-hua-xue-xi-chu-shi/</id>
-        <link href="https://ankeliei.github.io/post/qiang-hua-xue-xi-chu-shi/">
-        </link>
-        <updated>2022-04-25T01:42:18.000Z</updated>
-        <summary type="html"><![CDATA[<p>强化学习中的基础概念与基本思想</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>强化学习中的基础概念与基本思想</p>
-<!-- more -->
-<h1 id="强化学习基础构成">强化学习基础构成</h1>
-<ul>
-<li>环境Environment</li>
-<li>智能体Agent</li>
-<li>目标Goal（长远目标）</li>
-</ul>
-<h1 id="强化学习的进一步构成">强化学习的进一步构成</h1>
-<ul>
-<li>状态State</li>
-<li>动作Action</li>
-<li>奖励Reward（单步奖励）</li>
-</ul>
-<h1 id="强化学习核心要素">强化学习核心要素</h1>
-<ul>
-<li>策略Policy</li>
-<li>价值Value，有的算法不依赖价值，直接学习策略，不是学习重点<br>
-状态价值函数，输入状态，输出预期奖励之和<br>
-状态行动价值函数，输入状态与行动，输出预期奖励之和</li>
-</ul>
-<h1 id="强化学习两个特点">强化学习两个特点</h1>
-<ul>
-<li>Trial and Error 试错</li>
-<li>Delayed Reward 延迟奖励<br>
-每一步action具有value，但不一定有Reward。需要考虑Credit Assignment以及Backpropagation（分数分配与反向传播）</li>
-</ul>
-<h1 id="强化学习一个问题">强化学习一个问题</h1>
-<ul>
-<li>Exploration(探索) vs. Exploitation(利用)<br>
-探索未知规则与利用已知价值函数之间的权衡</li>
-</ul>
-<h1 id="以围棋为例">以围棋为例</h1>
-<p>环境为棋盘，agent为玩家，状态为棋盘上每点的空、黑、白三种状态，动作为玩家向棋盘落子，奖励为落子是否获胜。<br>
-价值函数：在某状态下的可能动作对应的预期奖励之和。</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[C++函数]]></title>
-        <id>https://ankeliei.github.io/post/chan-shu/</id>
-        <link href="https://ankeliei.github.io/post/chan-shu/">
-        </link>
-        <updated>2022-04-09T14:17:11.000Z</updated>
-        <summary type="html"><![CDATA[<p>函数是一起执行一个任务的语句。</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>函数是一起执行一个任务的语句。</p>
-<!--more-->
-<p>每一个C++程序都应该至少有一个函数，即<code>main()</code>函数</p>
-<p>代码可以自由地划分为不同的函数。逻辑上通常指定一个函数来执行某项特定的任务</p>
-<p><mark>函数的声明</mark>：告诉编译器函数的<code>名称</code>、<code>返回值类型</code>和<code>参数</code>。函数的定义提供了其实际上的主体</p>
-<p><mark>C++标准库</mark>提供了大量内置函数，功能强大</p>
-<h2 id="函数的定义">函数的定义</h2>
-<pre><code class="language-c++">return_type function_name (parameter list) {	'返回值类型 函数名（参数列表）'
-    'body_of_the_function'
-}
-</code></pre>
-<h2 id="函数的声明">函数的声明</h2>
-<p>函数声明可以告诉编译器函数名称和如何调用函数，函数主体可以单独定义。</p>
-<p>声明示例：</p>
-<pre><code class="language-c++">return_type function_name( parameter list );	'其中参数列表可以只指定形参的数据类型而不指定某名称'
-</code></pre>
-<h2 id="参数的传递">参数的传递</h2>
-<p><mark>传值调用</mark></p>
-<p>把参数的值复制给形参加以保存，所以函数内改变参数的值不会影响实际参数。</p>
-<pre><code class="language-c++"># include &lt;iostream&gt;
-using namespace std;
 
-void swap(int x, int y){
-    int temp;
-    temp = x;
-    x = y;
-    y = temp;
-}
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://ankeliei.github.io/tag/ReinforcementLearning/" class="tag">
+                    强化学习
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://ankeliei.github.io/post/qiang-hua-xue-xi-chu-shi/">
+                  <h3 class="post-title">
+                    强化学习初识
+                  </h3>
+                </a>
+              </div>
+            
 
-int main (){
-    int x = 1, y = 2;
-    swap( x , y );
-    cout &lt;&lt; 'x=' &lt;&lt; x &lt;&lt; endl;
-    cout &lt;&lt; 'y=' &lt;&lt; y &lt;&lt; endl;			'肉眼可见交换失败'
-}
-</code></pre>
-<p><mark>指针调用</mark></p>
-<p>该方法把参数的地址复制给形参，函数内的参数是一个指针，指针指向的数据才具有意义，在函数内修改形参指向的数据会影响实际参数。<mark>函数处理的是<strong>指针</strong>，想做有效操作需要访问参数所指的数据</mark></p>
-<pre><code class="language-c++"># include &lt;iostream&gt;
-using namespace std;
+            
 
-void swap(int *x, int *y){
-    int temp;
-    temp = *x;
-    *x = *y;
-    *y = *temp;
-}
+          </div>
 
-int main (){
-    int x = 1, y = 2;
-    swap( &amp;x , &amp;y );
-    cout &lt;&lt; 'x=' &lt;&lt; x &lt;&lt; endl;
-    cout &lt;&lt; 'y=' &lt;&lt; y &lt;&lt; endl;			'交换成功，swap函数访问了指针参数指向的数据，并加以改变'
-}
-</code></pre>
-<p><mark>引用调用</mark></p>
-<p>向函数传递参数的<strong>引用调用</strong>方法，把引用的地址复制给形式参数。在函数内，该引用用于访问调用中要用到的实际参数。这意味着，修改形式参数会影响实际参数。</p>
-<p>按引用传递值，参数引用被传递给函数，就像传递其他值给函数一样。因此相应地，在下面的函数 <strong>swap()</strong> 中，您需要声明函数参数为引用类型，该函数用于交换参数所指向的两个整数变量的值。</p>
-<pre><code class="language-c++"># include &lt;iostream&gt;
-using namespace std;
+        </div>
+      </div>
+    </div>
 
-void swap(int &amp;x, int &amp;y){
-    int temp;
-    temp = x;
-    x = y;
-    y = temp;
-}
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
 
-int main (){
-    int x = 1, y = 2;
-    swap( x , y );
-    cout &lt;&lt; 'x=' &lt;&lt; x &lt;&lt; endl;
-    cout &lt;&lt; 'y=' &lt;&lt; y &lt;&lt; endl;			'交换成功，swap函数访问了指针参数指向的数据，并加以改变'
-}
-</code></pre>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[C++存储类]]></title>
-        <id>https://ankeliei.github.io/post/ccun-chu-lei/</id>
-        <link href="https://ankeliei.github.io/post/ccun-chu-lei/">
-        </link>
-        <updated>2022-04-09T14:15:32.000Z</updated>
-        <summary type="html"><![CDATA[<p><code>static</code>、<code>extern</code>、<code>mutable</code>、<code>thread_local</code>（<code>auto</code>、<code>register</code>）</p>
-]]></summary>
-        <content type="html"><![CDATA[<p><code>static</code>、<code>extern</code>、<code>mutable</code>、<code>thread_local</code>（<code>auto</code>、<code>register</code>）</p>
-<!--more-->
-<h2 id="static">static</h2>
-<p>static存储类指示编译器在程序的生命周期内保持局部变量的存在，而不需要每次在进出作用域时进行创建或销毁。因此，<code>static</code>修饰的局部变量可以在函数调用之间保持局部变量的值；</p>
-<p><code>static</code>修饰全局变量会使其作用域限定在声明的文件中;</p>
-<p><code>static</code>修饰类数据成员时，会导致有一个该成员的副本被所有类共享。</p>
-<pre><code class="language-c++">'类的静态成员变量先于类的对象而存在'
-'类的所有对象共用一个静态成员'
-'如果类的静态成员是共有的，可以通过类名直接访问这个静态成员'
-'静态成员数据在声明的时候类外初始化'
-</code></pre>
-<p>静态局部变量若无显式的初始化，编译器会采取与全局变量相同的初始化方略：<code>每位都置0</code>。</p>
-<p>典型使用就是标识一个计数器，统计函数调用的次数或是类的实例数量。</p>
-<pre><code>## extern
-</code></pre>
-<p>extern用于提供一个全局变量的引用，全局变量对所有的程序文件都是可见的。当使用extern时，对于无法初始化的变量，会把变量名指向一个之前定义过的存储位置。</p>
-<p>当您有多个文件且定义了一个可以在其他文件中使用的全局变量或函数时，可以在其他文件中使用 <em>extern</em> 来得到已定义的变量或函数的引用。可以这么理解，<strong><code>extern</code> 是用来在另一个文件中声明一个全局变量或函数</strong>。</p>
-<p><code>extern</code>通常用于两个或多个文件共享相同的全局变量或函数时。</p>
-<p>例：<code>mian.cpp</code>和<code>support.cpp</code>两个文件使用<code>$ g++ mian.cpp support.cpp -o extern_test</code>编译。</p>
-<pre><code class="language-c++">'main.cpp' 
-#include &lt;iostream&gt;
- 
-int count ;
-extern void write_extern();
- 
-int main()
-{
-   count = 5;
-   write_extern();
-}
-</code></pre>
-<pre><code class="language-c++">'support.cpp'
-#include &lt;iostream&gt;
- 
-extern int count;
- 
-void write_extern(void)
-{
-   std::cout &lt;&lt; &quot;Count is &quot; &lt;&lt; count &lt;&lt; std::endl;
-}
-</code></pre>
-<p>编译并运行的结果为</p>
-<pre><code class="language-shell">Count is 5
-</code></pre>
-<h2 id="thread_local">thread_local</h2>
-<p>使用 thread_local 说明符声明的变量仅可在它在其上创建的线程上访问。 变量在创建线程时创建，并在销毁线程时销毁。 每个线程都有其自己的变量副本。</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[C++常量]]></title>
-        <id>https://ankeliei.github.io/post/cchang-liang/</id>
-        <link href="https://ankeliei.github.io/post/cchang-liang/">
-        </link>
-        <updated>2022-04-09T14:14:37.000Z</updated>
-        <summary type="html"><![CDATA[<p><mark>常量</mark>是固定的，在程序执行期间不会改变，又称<mark>字面量</mark>。</p>
-]]></summary>
-        <content type="html"><![CDATA[<p><mark>常量</mark>是固定的，在程序执行期间不会改变，又称<mark>字面量</mark>。</p>
-<!--more-->
-<h2 id="整数型常量">整数型常量</h2>
-<p>整数型常量有自己的<mark>前缀</mark>或者<mark>后缀</mark>，</p>
-<ul>
-<li>前缀指定基数：<mark>无前缀</mark>表示十进制，<mark>0x</mark>或<mark>0X</mark>表示十六进制，<mark>0</mark>表示八进制。</li>
-<li>后缀为两个字母<mark>u</mark>与<mark>l</mark>的组合，大小写不敏感。<mark>u</mark>指定该数为无符号数，<mark>l</mark>指定该数为长整型</li>
-</ul>
-<pre><code class="language-c++">212				//合法
-215u			//合法
-0xFeel			//合法
-078				//非法，8不应该出现在八进制数字中
-032uu			//非法，后缀标识重复
-</code></pre>
-<h2 id="浮点常量">浮点常量</h2>
-<p>浮点常量较为复杂，通常是由<mark>整数</mark>、<mark>小数点</mark>、<mark>小数部分</mark>、和<mark>指数</mark>部分组合而成。</p>
-<p>浮点数总是有符号的，故没有后缀标识符<mark>u</mark>。</p>
-<p>后缀<mark>f</mark>指明单精度，后缀<mark>l</mark>指明长双精度，不区分大小写。</p>
-<pre><code class="language-c++">3.1415e-5l		//合法
-</code></pre>
-<h2 id="布尔常量">布尔常量</h2>
-<p>共有两个，都是标准的关键字。<mark>true</mark>与<mark>false</mark></p>
-<p><strong>不应该简单地将true与false看成是0或1</strong></p>
-<h2 id="字符常量">字符常量</h2>
-<p>字符常量存在于单引号之中，一个字符存储为一个<mark>char</mark>。</p>
-<p>引号前以<mark>L</mark>标识时，此为宽字符常量，例如<code>L'x'</code>存储为wchar_t。注意，标识符只能为大写。</p>
-<p>字符常量中，遇到反斜线<code>\</code>时，对其后的字符进行转义。</p>
-<table>
-<thead>
-<tr>
-<th>转义序列</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>\</td>
-<td>\</td>
-</tr>
-<tr>
-<td>'</td>
-<td>'</td>
-</tr>
-<tr>
-<td>&quot;</td>
-<td>&quot;</td>
-</tr>
-<tr>
-<td>?</td>
-<td>?</td>
-</tr>
-<tr>
-<td>\a</td>
-<td>警报</td>
-</tr>
-<tr>
-<td>\b</td>
-<td>退格键</td>
-</tr>
-<tr>
-<td>\f</td>
-<td>换页符</td>
-</tr>
-<tr>
-<td>\n</td>
-<td>换行符</td>
-</tr>
-<tr>
-<td>\r</td>
-<td>回车</td>
-</tr>
-<tr>
-<td>\t</td>
-<td>制表符</td>
-</tr>
-<tr>
-<td>\v</td>
-<td>垂直制表符</td>
-</tr>
-<tr>
-<td>\ooo</td>
-<td>一到三位的八进制数</td>
-</tr>
-<tr>
-<td>\xhh</td>
-<td>一或多位的十六进制数</td>
-</tr>
-</tbody>
-</table>
-<p>=='\u02C0'==等通用字符也有其意义。</p>
-<h2 id="字符串常量">字符串常量</h2>
-<p>字符串常量通常包括在双引号<code>&quot;&quot;</code>之中，由<mark>普通字符</mark>、<mark>转义序列</mark>、<mark>通用字符组成</mark>。</p>
-<hr>
-<h2 id="常量的定义">常量的定义</h2>
-<p>c++中有两种简单的方式来定义常量：</p>
-<pre><code class="language-c++">'使用#define预处理器定义常量'
-#define indentifier value
-#define LEIGHT 5
+AOS.init();
 
-'使用 const 关键字'
-const type variable = value;
-const int WIDTH = 10;
-</code></pre>
-<p><strong>注意，把常量定义为全大写字母形式是一个很好的习惯。</strong></p>
-<p>使用<code>const</code>定义的常量不能被后期修改。</p>
-<p><code>#define</code>宏定义只是字符的替换，不会分配内存，没有数据类型的区别。没有类型安全检查，可能导致边际效应错误。</p>
-<p><code>const</code>是对常量定义的结果加了锁，要求后期不能修改，是一个<mark>运行时</mark>概念，类似于一个只读的数据。</p>
-<p><code>#define</code>预处理语句不能在末尾加分号<code>;</code>，否则编译器不报错而程序出错。</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[中断]]></title>
-        <id>https://ankeliei.github.io/post/zhong-duan/</id>
-        <link href="https://ankeliei.github.io/post/zhong-duan/">
-        </link>
-        <updated>2022-04-09T14:13:21.000Z</updated>
-        <content type="html"><![CDATA[<h1 id="中断机构和中断程序处理">中断机构和中断程序处理</h1>
-<h2 id="中断简介">中断简介</h2>
-<h3 id="中断和陷入">中断和陷入</h3>
-<ul>
-<li>中断是指CPU对来自I/O设备发来的中断信号的一种响应</li>
-<li>陷入是由CPU内部时间所引发的，如运算上溢或者下溢、非法指令、地址越界、电源故障等。此类中断通常称为<code>内中断</code>或<code>陷入</code></li>
-</ul>
-<h3 id="中断向量表和中断优先级">中断向量表和中断优先级</h3>
-<ul>
-<li><strong>中断向量表</strong>：把每种设备的对应中断程序入口地址集中存放在一个表项之中，每个设备的中断信号直接对应表中的表项。中断向量表以<code>段地址+段内偏移量</code>的形式存放中断程序入口地址。</li>
-<li><strong>中断优先级</strong>：</li>
-</ul>
-<h3 id="多中断源处理方式屏蔽中断-嵌套终端">多中断源处理方式：屏蔽中断、嵌套终端</h3>
-<h2 id="中断处理程序">中断处理程序</h2>
-<hr>
-<h1 id="设备驱动程序">设备驱动程序</h1>
-<figure data-type="image" tabindex="1"><img src="https://ankeliei.github.io/post-images/1649513657142.png" alt="" loading="lazy"></figure>
-<h2 id="功能有">功能有：</h2>
-<h2 id="特点有">特点有：</h2>
-<ul>
-<li>可重入：正在使用的驱动程序会在一次调用完成前再次被调用</li>
-<li>不使用系统调用</li>
-<li>硬件紧密：部分使用机器码或者汇编语言编写</li>
-<li>硬件紧密：一般来说与硬件一一对应</li>
-</ul>
-<h2 id="设备处理方式">设备处理方式</h2>
-<ul>
-<li>每类设置一个进程</li>
-<li>设置一个总进程</li>
-<li>不设置专门的设备处理进程，只设置相应的处理程序，供系统或用户调用</li>
-</ul>
-<h2 id="处理过程">处理过程</h2>
-<ol>
-<li>抽象转化为具体</li>
-<li>检查I/O请求是否合法</li>
-<li>读出和检查设备的状态</li>
-<li>传送必要的参数</li>
-<li>工作方式的设置</li>
-<li>启动I/O设备</li>
-</ol>
-<h2 id="状态寄存器中的格式">状态寄存器中的格式</h2>
-<figure data-type="image" tabindex="2"><img src="https://ankeliei.github.io/post-images/1649513628605.png" alt="" loading="lazy"></figure>
-<h2 id="通道程序">通道程序</h2>
-<p>通道通过执行通道程序，与设备控制器交互完成I/O过程</p>
-<h2 id="设备无关的io软件">设备无关的I/O软件</h2>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[文件系统]]></title>
-        <id>https://ankeliei.github.io/post/wen-jian-xi-tong/</id>
-        <link href="https://ankeliei.github.io/post/wen-jian-xi-tong/">
-        </link>
-        <updated>2022-04-09T14:12:30.000Z</updated>
-        <content type="html"><![CDATA[<h2 id="文件名和类型">文件名和类型</h2>
-<h3 id="文件和扩展名">文件和扩展名</h3>
-<ul>
-<li>文件名--在不同系统中，对文件名的规定是不同的，典型的是<code>8.3格式</code>，大部分系统也都支持长文件名格式</li>
-<li>扩展名--通常与系统对文件的操作相关</li>
-</ul>
-<h3 id="文件类型">文件类型</h3>
-<ul>
-<li>用途分类：系统文件、用户文件、库文件</li>
-<li>数据类型：源文件、目标文件、可执行文件</li>
-<li>逻辑结构：有结构文件、无结构文件</li>
-<li>物理结构：顺序文件、链接文件、索引文件</li>
-</ul>
-<h3 id="文件系统层次">文件系统层次</h3>
-<figure data-type="image" tabindex="1"><img src="https://ankeliei.github.io/post-images/1649513582188.png" alt="" loading="lazy"></figure>
-<p>分为三个层次，<code>最底层</code>是对象及其属性说明；<code>中间层</code>是对对象操纵和管理软件的集合；<code>最高层</code>是文件系统提供给用户的接口</p>
-<h3 id="文件操作">文件操作</h3>
-<ul>
-<li>创建</li>
-<li>删除</li>
-<li>读</li>
-<li>写</li>
-<li>设置文件的读写位置</li>
-</ul>
-<h2 id="文件的逻辑结构">文件的逻辑结构</h2>
-<p>区别于物理结构</p>
-<h3 id="文件逻辑结构的类型">文件逻辑结构的类型</h3>
-<h4 id="是否有结构">是否有结构</h4>
-<ul>
-<li>有结构文件</li>
-<li>无结构文件</li>
-</ul>
-<h4 id="文件组织方式">文件组织方式</h4>
-<ul>
-<li>
-<p>顺序文件</p>
-<p>文件是记录的集合。文件中记录的顺序是任意的，一般可以归纳为<code>串结构</code>（即按时间安排记录）、<code>顺序结构</code>(即按文件记录按关键字排序，具有更好的检索效率)</p>
-</li>
-<li>
-<p>索引文件</p>
-</li>
-<li>
-<p>索引顺序文件</p>
-</li>
-</ul>
-<h3 id="记录寻址">记录寻址</h3>
-<h4 id="隐式寻址">隐式寻址</h4>
-<p>对于定长记录的顺序文件，若当前记录的逻辑地址已知，则易确定下一记录的逻辑地址地址</p>
-<h4 id="显式寻址">显式寻址</h4>
-<h3 id="索引文件">索引文件</h3>
-<h4 id="按关键字建立索引">按关键字建立索引</h4>
-<p>对变长记录文件建立索引表，记录每一个记录的地址。索引表本身是一个定长记录的顺序文件。对文件进行检索时，根据关键字，在索引表中应用二分查找法等算法，加速索引</p>
-<h3 id="索引顺序文件">索引顺序文件</h3>
-<h4 id="一级索引顺序文件">一级索引顺序文件</h4>
-<p>将变长记录顺序文件所有记录分组，为组建立索引项，方便索引，甚至可以有二级索引表。</p>
-<h4 id="直接地址文件">直接地址文件</h4>
-<h4 id="哈希文件">哈希文件</h4>
-<p>一种直接文件，利用哈希函数将关键字转换为相应记录的地址。</p>
-<h2 id="文件目录">文件目录</h2>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[ 进程的描述与控制]]></title>
-        <id>https://ankeliei.github.io/post/jin-cheng-de-miao-shu-yu-kong-zhi/</id>
-        <link href="https://ankeliei.github.io/post/jin-cheng-de-miao-shu-yu-kong-zhi/">
-        </link>
-        <updated>2022-04-09T11:56:11.000Z</updated>
-        <summary type="html"><![CDATA[<p>现代操作系统对进程的组织方式</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>现代操作系统对进程的组织方式</p>
-<!--more-->
-<h3 id="一-前驱图和程序执行">一、前驱图和程序执行</h3>
-<hr>
-<h5 id="前驱图precedence-graph">前驱图(Precedence Graph)：</h5>
-<p>描述程序执行先后顺序，是一个<code>有向无循环图</code>。图中的每一个节点可以表示一个进程或程序段，结点间的有向线段表示一种<code>偏序</code>或<code>前趋</code>关系。<br>
-一些概念：<code>直接前趋</code>、<code>直接后继</code>、<code>初始结点</code>、<code>终止结点</code>、<code>结点重量</code><em>(该节点所含有的程序量或程序的执行时间)</em></p>
-<hr>
-<h5 id="程序的顺序执行">程序的顺序执行：</h5>
-<p>一个应用程序由若干个程序段组成，需要按某种先后次序顺序执行。</p>
-<p><strong>特征是</strong>：<code>顺序性</code>处理机严格按照设定好的顺序执行即每一次操作都在下一次操作开始前完成；<code>封闭性</code>程序在封闭的环境下运行，独占全机资源，资源的状态只受本程序改变，程序一旦开始其结果就不受外界干扰；<code>可再现性</code>程序的执行过程可以复现，即只要环境和初始条件相同，程序的执行结果就相同。</p>
-<hr>
-<h5 id="程序的并发执行">程序的并发执行：</h5>
-<p>只有不存在前趋关系的程序之间才有可能并发执行。引入并发执行可提高系统吞吐量和资源利用率，并发执行的程序之间会产生相互制约。</p>
-<p><strong>特征是：</strong>  <code>间断性</code>并发执行的程序之间共享系统资源，为完成同一项任务而相互合作，致使这些并发执行的程序之间形成了相互制约的关系，导致程序具有<em>执行-暂停-执行</em>的间断性活动规律；<code>失去封闭性</code>系统中的各种资源被多个并发执行的程序共享，资源状态由它们控制改变，任意的一个程序的执行过程都会影响到其他并行的程序，例如处理机的争夺、文件的操作权限争夺；<code>不可再现性</code>程序在并发执行时，因为失去了封闭性，导致其失去可再现性。程序执行时初始条件不变和运行环境不变无法保证结果不变。</p>
-<h3 id="二-进程的描述">二、进程的描述</h3>
-<hr>
-<h5 id="进程的定义">进程的定义</h5>
-<p>多道程序环境下程序的执行属于并发执行，失去其封闭性，失去运行结果的可再现性，具有了间断性。因此通常的程序时不能参与并发执行的，为了使程序能并发执行，并对其加以描述和控制，引入了<code>进程</code>概念。</p>
-<p>为使参与并发执行的每个程序(含数据)都能独立地运行，在操作性中专门为之配置数据结构PCB(进程控制块，Process Control Block)。系统利用PCB来描述进程的基本情况和活动过程，进而控制和管理进程。这样，由PCB、程序段、相关数据三方便构成了<code>进程实体</code> <code>(进程映像)</code>。一般情况下进程实体即简称为进程，例如所谓创建进程即为创建进程实体中的PCB；撤销进程及撤销进程的PCB。</p>
-<p>较为典型的进程的定义有：</p>
-<ul>
-<li>进程是程序的一次执行</li>
-<li>进程是一个程序及其数据在处理机上顺序执行时所发出的活动</li>
-<li>进程是具有独立功能的程序在一个数据集合上运行的过程，它是系统进行资源调度和分配的一个独立单位</li>
-</ul>
-<p>传统OS中的进程定义为：进程是进程实体的运行过程，是资源分配和调度的一个独立单位。</p>
-<hr>
-<h5 id="进程的特征">进程的特征</h5>
-<p>进程和程序是两个截然不同的概念，除了PCB之外，进程还具有以下特征：</p>
-<ul>
-<li><code>动态性</code>进程的实质是指实体执行的过程，因此，动态性就是进程的最基本特征。动态性还表现在：它由创建而产生，由调用而执行，由撤销而消亡。进程实体具有一定的生命周期，程序只是一组有序的指令的集合，程序存放在命中介质中，其本身并不具有活动的含义，其本省是静态的。</li>
-<li><code>并发性</code>是指多个进程实体同时存在于内存中，且能在一段时间内同时运行。引入进程的目的也正是为了使进程实体能和其它进程实体并发执行。因此<code>并发性</code>是进程的一个重要特征，也是OS的重要特征。而程序是不能参与并发执行的。</li>
-<li><code>独立性</code>：传统OS中，独立性是指进程实体是一个独立运行，独立获得资源和独立接受调度的基本单位，凡未建立PCB的程序都不能作为一个独立的单位参与运行。</li>
-<li><code>异步性</code>：进程按照异步的方式运行，即各自按独立的不可预知的速度向前推进。源于此因，导致传统的程序若是参与并发执行，会产生结果的不可再现性。为了使进程在执行中具有异步性的同时保持可再现性，在OS中引入进程概念并配置相应额度同步机制。</li>
-</ul>
-<hr>
-<h5 id="进程的基本状态及转换">进程的基本状态及转换</h5>
-<p><code>就绪(Ready)状态</code>进程已经处于准备好运行的状态，即进程已经分配到除处理机之外的所有资源，只要再获得CPU即可立即投入执行，若系统中有多个处于就绪状态的进程，通常按一定策略为其排定<em>就绪队列</em><br>
-<code>执行(Running)状态</code>进程已经获得CPU，正在执行。任意一个时刻中，单处理机系统中只有一个进程处于执行状态。<br>
-<code>阻塞(Block)状态</code>正在执行的进程由于发生某种事件(如I/O请求、申请缓冲区失败等)暂时无法继续执行时的状态，即进程的执行受到阻塞。此时引起进程调度，OS把处理机分配给另一个就绪进程，受阻进程处于暂停状态(阻塞状态、等待状态、封锁状态)。通常系统将受阻进程也排成一个序列即<em>阻塞队列</em>。大型系统中，也会根据阻塞原因的不同设置多个<em>阻塞序列</em>。</p>
-<p><strong>三种基本状态的转换</strong>：<br>
-<img src="https://ankeliei.github.io/post-images/1649511181395.png" alt="三种状态转换.png" loading="lazy"><br>
-<strong>创建状态和终止状态</strong>：为满足进程控制块对数据及进程操作的完整性以及加强管理的灵活性，通常在三种基本状态之外又引进两种状态：</p>
-<p><code>创建状态</code>进程由创建产生。创建进程是一个复杂的过程</p>
-<ul>
-<li>申请空白PCB</li>
-<li>装入控制和管理信息</li>
-<li>分配运行时所需的资源</li>
-<li>转入就绪状态并插入就绪队列中</li>
-</ul>
-<p>在转入就绪状态之前一直处于创建状态，故OS可根据系统性能和内存余量延迟提交，灵活方便。</p>
-<p><code>终止状态</code> 进程的终止也分为两个步骤：先是等待操作系统的善后处理，再是清空PCB并交还给OS。进程的结束有以下几种情况：自然到达终点、出现无法克服的错误、被操作系统杀死，遇到以上情况进程将进入终止状态。进入终止状态的进程将不会再执行，但在操作系统中依然会保留一个记录，其中有状态码和一些计时统计信息，供其他进程收集。收集完成之后操作系统立即删除该进程，即将PCB清空并返还</p>
-<p>增加创建和终止的进程状态转化图：<br>
-<img src="https://ankeliei.github.io/post-images/1649511266274.png" alt="五种状态转化图" loading="lazy"></p>
-<hr>
-<h5 id="挂起操作和进程状态的转化">挂起操作和进程状态的转化</h5>
-<p>为用户分析和观察进程的需要，操作系统还提供对进程的<code>挂起操作</code>。对某个进程施行<code>挂起操作</code>，该进程将被挂起并处于静止状态。正在执行的则暂停执行，就绪的则暂不接受调度。与<code>挂起操作</code>相对应的是<code>激活操作</code></p>
-<p><strong>挂起操作引入的原因</strong></p>
-<ul>
-<li>终端用户的需要：用户需要惊喜控制进程的执行流程</li>
-<li>父进程的请求：父进程又是希望对自己的某个子进程进行检查的修改或对多个子进程加以协调</li>
-<li>负荷调节的需要：系统在负荷过重影响到对实时任务的控制时，可以挂起一些不重要的进程</li>
-<li>操作系统的需要：OS有时希望能挂起一些进程以便检查资源的使用或者进行记账。</li>
-</ul>
-<p><strong>引入挂起操作后的进程状态之间的转换</strong></p>
-<hr>
-<p><strong>进程控制块PCB</strong></p>
-<p>操作系统中，为方便对计算机中各类资源的使用和管理，OS将其抽象为对应的数据结构，提供一组对资源进行管理地命令，方便用户脱离细节使用计算机中各类资源；同时也方便OS协调、记录、查询各类资源地情况。</p>
-<p>操作系统中这一类数据结构通常有<code>内存表</code>、<code>设备表</code>、<code>文件表</code>、<code>进程表</code>。其中<code>进程表</code>又被成为<code>PCB</code>：</p>
-<p>进程表：即进程控制块PCB(Process Control Block)。是进程实体的一部分，记录操作系统所需的、用于描述进程当前状态及管理进程的全部信息。是操作系统中最重要的记录型数据结构。</p>
-<p>PCB使多道程序环境下不能独立运行的程序(数据)成为一个能独立运行的基本单、一个能于其他进程并发执行的进程。</p>
-<ul>
-<li>是独立运行基本单位的标志：程序被配置PCB即可以运行，可以取得OS服务。创建进程即为其创建PCB，销毁进程即回收其PCB，系统中进程的唯一标识即为PCB，系统通过PCB感知进程的存在状态。</li>
-<li>PCB可以记录进程阻塞时的CPU现场，以供再次调度时的现场恢复。</li>
-<li>提供进程管理所需的重要信息：包括程序地址指针、数据地址指针、资源访问支持、进程所需资源清单等。</li>
-<li>提供进程调度所需重要信息：进程状态、优先级、已执行时间、等待时间等。</li>
-<li>实现与其他进程的同步通信：采用信号机制是，每个进程中都设置相应的用于同步的信号量，PCB中也有用于实现进程通信的区域或通信队列指针等。</li>
-</ul>
-<p>PCB中的信息：</p>
-<ul>
-<li>进程标识符：唯一标识一个进程。外部标识符由创建者提供，方便用户访问，还应设置父进程标识及子进程标识。内部标识符由OS设置，为每个进程的唯一数字标识符，通常是进程的序号。</li>
-<li>处理机状态：即处理机上下文，主要是由处理及的各种寄存器中的内容组成的。有<code>通用寄存器</code>(也称用户可视寄存器，用户程序可以访问，暂存信息用，数量较多)、 <code>指令计数器</code>(存放了下一条要访问的指令的地址)、<code>程序状态字PSW</code>(包含状态信息，有条件码、执行方式、中断屏蔽标志等)、<code>用户栈指针</code>(每个进程都有若干个系统栈，用于存放过程和系统调用参数及调用地址。栈指针指向该栈的栈顶。栈指针指向该栈的栈顶)。</li>
-<li>进程调度信息：包括有<code>进程状态</code>、<code>进程优先级</code>、<code>所需其他信息</code>、<code>事件</code>(阻塞原因)。</li>
-<li>进程控制信息：包括有<code>程序和数据地址</code>、<code>进程同步和通信机制</code>、<code>资源清单</code>、<code>链接指针</code>(本进程队列中下一进程的PCB首地址)。</li>
-</ul>
-<p>PCB的组织方式：</p>
-<ul>
-<li>线性方式：所有的进程PCB组织在一个线性列表中，实现简单开销小，但每次查找都需要全表查，进程数目不多可用。</li>
-<li>连接方式：大表中状态相同的进程PCB通过链接字连城一个队列，执行指针和就绪、阻塞、空闲队列的指针分别指向表中某个PCB地址。</li>
-<li>索引方式：在大表之外，按照不同状态为进程的PCB建立索引，索引表用来记录该状态的所有PCB的地址。</li>
-</ul>
-<hr>
-<h3 id="三-进程的控制">三、进程的控制</h3>
-<p>基本功能包括<code>创建进程</code>、<code>终止已完成的进程</code>、<code>对异常进程置阻塞</code>、<code>对与凝重的进程进行状态转换</code>等。进程控制一般由操作系统内核中的原语来实现。</p>
-<p><strong>操作系统内核</strong></p>
-<p>操作系统一般划分为若干层次，不同功能一般置于不同层次中。通常将一些<code>硬件联系紧密的模块</code>(如中断处理程序等)、<code>运行频率较高的模块</code>(如时钟管理、进程调度、许多模块所公用的基本操作等)，都安排在仅靠硬件的软件层中，将它们常驻内存，通常被称为<code>操作系统内核</code>。</p>
-<p>硬件紧密模块和高频运行模块常驻内存有助于：1. 加以保护防止被恶意篡改攻击；2. 提高OS运行效率。</p>
-<p>出于安全考虑，处理机的执行状态有两种：<code>系统态</code>、<code>用户态</code>：</p>
-<ul>
-<li>系统态：又称管态、内核态。权限高，可执行一切指令、访问一切资源，传统OS都在系统态运行</li>
-<li>用户态：又称目态，低执行权限，应用程序一般只能在用户态执行。不能执行OS指令和访问OS资源，保护系统安全。</li>
-</ul>
-<p>OS内核的功能有：<code>支撑功能</code>、<code>资源管理功能</code>：</p>
-<ul>
-<li>支撑功能：中断处理、时钟管理(分配处理机时间片等功能需要)、原语操作(若干指令的集合，是原子操作，功能不可分、不被中断，如链表操作、进程同步等)。</li>
-<li>资源管理：进程管理、存储器管理、设备管理。</li>
-</ul>
-<p><strong>进程的创建</strong></p>
-<p>p53</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[C++变量类型]]></title>
-        <id>https://ankeliei.github.io/post/cbian-liang-lei-xing/</id>
-        <link href="https://ankeliei.github.io/post/cbian-liang-lei-xing/">
-        </link>
-        <updated>2022-04-09T11:52:07.000Z</updated>
-        <content type="html"><![CDATA[<h2 id="变量">变量</h2>
-<p>变量是程序可操作的存储区的名称。C++中<strong>每个变量都有指定的类型</strong>，不同类型的变量有不同的存储大小和布局。变量存储于内存中，运算符可应用于变量上。</p>
-<h2 id="变量的类型">变量的类型</h2>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">类型</th>
-<th>解释</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">bool</td>
-<td>存储true或false</td>
-</tr>
-<tr>
-<td style="text-align:center">char</td>
-<td>一个字符，通常占一个字节。整数类型。</td>
-</tr>
-<tr>
-<td style="text-align:center">int</td>
-<td>整形，占四字节。</td>
-</tr>
-<tr>
-<td style="text-align:center">float</td>
-<td>单精度浮点数，四字节，1位符号，8位指数，23位尾数</td>
-</tr>
-<tr>
-<td style="text-align:center">double</td>
-<td>双精度浮点数，八字节，1位符号，11位指数，52位尾数</td>
-</tr>
-<tr>
-<td style="text-align:center">void</td>
-<td>类型缺失</td>
-</tr>
-<tr>
-<td style="text-align:center">wchar_t</td>
-<td>宽字符型</td>
-</tr>
-</tbody>
-</table>
-<p>另外可以定义<code>枚举</code>、<code>指针</code>、<code>数组</code>、<code>引用</code>、<code>数据结构</code>、<code>类</code>等。</p>
-<h2 id="变量的定义和初始化">变量的定义和初始化</h2>
-<p>变量的定义即要求编译器在此处创建变量的存储：</p>
-<pre><code>typeA var;						声明一个变量
-typeB var1, var2, var3;			声明多个变量
-</code></pre>
-<p>变量可以在定义的时候被初始化：</p>
-<pre><code class="language-c++">int a;							//声明时未初始化
-int b = 3;						//声明时初始化为3
-</code></pre>
-<p>定义时没有初始化的==带有静态存储持续时间的（一般表现为全局变量）==变量默认初始化为NULL，即所有字节都是0；</p>
-<p>其他所有变量（一般表现为<mark>局部变量</mark>）的初始值未定义的话为<mark>为其开辟的存储空间的原内容（乱码）</mark>。</p>
-<p><mark><strong>强烈建议定义变量时手动初始化以确保安全</strong></mark></p>
-<p>在变量创建的时候指明其类型有助于划定对应的空间，和未来程序以何种方式处理（解读）此变量的指针。</p>
-<p><strong>变量的<mark>声明</mark>不同于变量的定义</strong></p>
-<pre><code class="language-c++">int a = 0;     //定义并声明了变量 a
-extern int a;  //只是声明了有一个变量 a 存在，具体 a 在哪定义的，需要编译器编译的时候去找。
-</code></pre>
-<p>类似于函数的<mark>声明</mark>与函数的<mark>定义</mark>之间的区别。</p>
-<pre><code class="language-c++">void fun1();  //函数声明
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
 
-void fun1(){  //函数定义
-    cout&lt;&lt;&quot;fun1&quot;&lt;&lt;endl;
-}
-</code></pre>
-<h2 id="类型转化规则">类型转化规则</h2>
-<p>分为<mark>自动转化</mark>、<mark>强制转化</mark></p>
-<h3 id="自动转化">自动转化</h3>
-<ol>
-<li>参与运算的量的类型不同，则转化为相同后运算</li>
-<li>数据类型转换力求保证精度：
-<ul>
-<li>向字节数高的方向靠拢；</li>
-<li>向无符号的方向靠拢。</li>
-</ul>
-</li>
-<li>浮点数运算统一转换为double双精度再进行运算。</li>
-<li>char与short运算时先转化为int再参与运算。</li>
-<li>赋值运算保留左值的数据类型（可能会丢失精度）。</li>
-</ol>
-<h3 id="强制转化">强制转化</h3>
-<p>可以手动通过类型转化运算来实现：一般形式为==（类型说明符）表达式==的形式。</p>
-<pre><code class="language-c++">int a = 1;
-double b = 2.1;
-cout &lt;&lt; &quot;a + b = &quot; &lt;&lt; a + (int)b &lt;&lt; endl;  //输出为a + b = 3
-</code></pre>
-<h2 id="c赋值运算符的左值lvalue和右值rvalue">C++赋值运算符的左值(lvalue)和右值(rvalue)</h2>
-<p>** 左值 (lvalue, locator value) ** 表示了一个占据内存中某个可识别的位置（也就是一个地址）的对象，左值可以被操作。</p>
-<p>** 右值(rvalue) ** 表示了一个非内存可识别对象的值，不能被操作。</p>
-<p>左值和右值的说法常在错误信息中出现。</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Hello Gridea]]></title>
-        <id>https://ankeliei.github.io/post/hello-gridea/</id>
-        <link href="https://ankeliei.github.io/post/hello-gridea/">
-        </link>
-        <updated>2018-12-11T16:00:00.000Z</updated>
-        <summary type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
-✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
-✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
-<!-- more -->
-<p><a href="https://github.com/getgridea/gridea">Github</a><br>
-<a href="https://gridea.dev/">Gridea 主页</a><br>
-<a href="http://fehey.com/">示例网站</a></p>
-<h2 id="特性">特性👇</h2>
-<p>📝  你可以使用最酷的 <strong>Markdown</strong> 语法，进行快速创作</p>
-<p>🌉  你可以给文章配上精美的封面图和在文章任意位置插入图片</p>
-<p>🏷️  你可以对文章进行标签分组</p>
-<p>📋  你可以自定义菜单，甚至可以创建外部链接菜单</p>
-<p>💻  你可以在 <strong>Windows</strong>，<strong>MacOS</strong> 或 <strong>Linux</strong> 设备上使用此客户端</p>
-<p>🌎  你可以使用 <strong>𝖦𝗂𝗍𝗁𝗎𝖻 𝖯𝖺𝗀𝖾𝗌</strong> 或 <strong>Coding Pages</strong> 向世界展示，未来将支持更多平台</p>
-<p>💬  你可以进行简单的配置，接入 <a href="https://github.com/gitalk/gitalk">Gitalk</a> 或 <a href="https://github.com/SukkaW/DisqusJS">DisqusJS</a> 评论系统</p>
-<p>🇬🇧  你可以使用<strong>中文简体</strong>或<strong>英语</strong></p>
-<p>🌁  你可以任意使用应用内默认主题或任意第三方主题，强大的主题自定义能力</p>
-<p>🖥  你可以自定义源文件夹，利用 OneDrive、百度网盘、iCloud、Dropbox 等进行多设备同步</p>
-<p>🌱 当然 <strong>Gridea</strong> 还很年轻，有很多不足，但请相信，它会不停向前 🏃</p>
-<p>未来，它一定会成为你离不开的伙伴</p>
-<p>尽情发挥你的才华吧！</p>
-<p>😘 Enjoy~</p>
-]]></content>
-    </entry>
-</feed>
+</script>
+
+
+
+
+
+
+  </body>
+</html>
